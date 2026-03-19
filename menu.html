@@ -42,6 +42,7 @@
         .drawer-transition { transition: transform 0.3s ease-in-out; }
         .hide-scrollbar::-webkit-scrollbar { display: none; }
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .filter-sheet-transition { transition: transform 0.3s ease, opacity 0.3s ease; }
     </style>
 </head>
 <body class="bg-white text-t_gray overflow-x-hidden">
@@ -127,8 +128,18 @@
 
         <section class="py-20 bg-pale border-y border-light_gray/70">
             <div class="max-w-[1450px] mx-auto px-4 grid grid-cols-1 xl:grid-cols-12 gap-8 items-start">
+                <div class="sm:hidden mb-3 bg-white border border-light_gray/70 rounded-2xl p-2 shadow-lg flex items-center gap-2">
+                    <div class="flex-1 bg-pale border border-light_gray/60 rounded-xl px-3 py-2 flex items-center gap-2">
+                        <i class="fas fa-search text-accent text-sm"></i>
+                        <input id="menuSearchMobileTop" type="text" placeholder="Search dishes" class="w-full bg-transparent outline-none text-sm text-primary placeholder:text-t_gray/70">
+                    </div>
+                    <button id="openFilterSheet" class="inline-flex items-center gap-2 bg-accent text-white px-4 py-2 rounded-xl text-sm font-bold shrink-0">
+                        <i class="fas fa-sliders-h"></i> Filters
+                    </button>
+                </div>
+
                 <aside class="xl:col-span-3 xl:sticky xl:top-[122px] space-y-6">
-                    <div class="bg-white border border-light_gray/70 rounded-[28px] p-6 shadow-sm">
+                    <div class="hidden sm:block bg-white border border-light_gray/70 rounded-[28px] p-6 shadow-sm">
                         <p class="text-xs uppercase tracking-[3px] text-accent font-semibold mb-4">Categories</p>
                         <div class="grid grid-cols-2 gap-3" id="categoryTabs">
                             <button data-tab="starters" class="menu-tab-btn bg-accent text-white px-4 py-3 rounded-2xl font-bold text-sm transition-all duration-500 shadow-lg shadow-accent/20">Starters</button>
@@ -138,7 +149,7 @@
                         </div>
                     </div>
 
-                    <div class="bg-white border border-light_gray/70 rounded-[28px] p-6 shadow-sm space-y-5">
+                    <div class="hidden sm:block bg-white border border-light_gray/70 rounded-[28px] p-6 shadow-sm space-y-5">
                         <div class="bg-pale border border-light_gray/60 rounded-2xl px-4 py-3 flex items-center gap-3">
                             <i class="fas fa-search text-accent"></i>
                             <input id="menuSearch" type="text" placeholder="Search dishes" class="w-full bg-transparent outline-none text-primary placeholder:text-t_gray/70">
@@ -160,7 +171,7 @@
                         </div>
                     </div>
 
-                    <div class="bg-secondary rounded-[28px] p-6 text-white shadow-xl">
+                    <div class="hidden sm:block bg-secondary rounded-[28px] p-6 text-white shadow-xl">
                         <p class="text-accent uppercase tracking-[2px] text-xs mb-3">Quick Order</p>
                         <h3 class="text-3xl mb-4">Order via WhatsApp</h3>
                         <p class="text-white/80 mb-5 text-sm">Pick your dish and place your order instantly on WhatsApp.</p>
@@ -184,10 +195,65 @@
                         <h3 class="text-4xl text-primary mb-4">No dishes match your filters.</h3>
                         <p class="text-lg">Try another category, keyword, or dietary selection.</p>
                     </div>
+
+                    <div class="sm:hidden mt-10 bg-secondary rounded-[28px] p-6 text-white shadow-xl">
+                        <p class="text-accent uppercase tracking-[2px] text-xs mb-3">Quick Order</p>
+                        <h3 class="text-3xl mb-4">Order via WhatsApp</h3>
+                        <p class="text-white/80 mb-5 text-sm">Pick your dish and place your order instantly on WhatsApp.</p>
+                        <a href="https://wa.me/919654525880?text=Hi%20Too%20Mikkii%20Tapas%2C%20I%20want%20to%20place%20an%20order." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full bg-[#25D366] text-white py-3 rounded-2xl font-bold hover:brightness-105 transition-all">
+                            <i class="fab fa-whatsapp mr-2"></i> Start WhatsApp Order
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
+
+    <div id="filterSheet" class="sm:hidden fixed inset-0 z-[120] opacity-0 pointer-events-none filter-sheet-transition">
+        <div id="filterSheetOverlay" class="absolute inset-0 bg-black/50"></div>
+        <div class="absolute bottom-0 left-0 right-0 bg-white rounded-t-[28px] border-t border-light_gray/70 p-5 max-h-[85vh] overflow-y-auto translate-y-full filter-sheet-transition" id="filterSheetPanel">
+            <div class="flex items-center justify-between mb-5">
+                <h3 class="text-3xl text-primary">Filter Menu</h3>
+                <button id="closeFilterSheet" class="w-10 h-10 rounded-xl border border-light_gray text-primary">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="space-y-5">
+                <div class="bg-pale border border-light_gray/70 rounded-2xl p-4">
+                    <p class="text-xs uppercase tracking-[3px] text-accent font-semibold mb-3">Categories</p>
+                    <div class="grid grid-cols-2 gap-3">
+                        <button data-tab="starters" class="menu-tab-btn bg-accent text-white px-4 py-3 rounded-2xl font-bold text-sm transition-all duration-500 shadow-lg shadow-accent/20">Starters</button>
+                        <button data-tab="main" class="menu-tab-btn bg-white text-primary border border-light_gray px-4 py-3 rounded-2xl font-bold text-sm transition-all duration-500 hover:border-accent hover:text-accent">Main</button>
+                        <button data-tab="drinks" class="menu-tab-btn bg-white text-primary border border-light_gray px-4 py-3 rounded-2xl font-bold text-sm transition-all duration-500 hover:border-accent hover:text-accent">Drinks</button>
+                        <button data-tab="desserts" class="menu-tab-btn bg-white text-primary border border-light_gray px-4 py-3 rounded-2xl font-bold text-sm transition-all duration-500 hover:border-accent hover:text-accent">Desserts</button>
+                    </div>
+                </div>
+
+                <div class="bg-pale border border-light_gray/70 rounded-2xl p-4 space-y-4">
+                    <div class="bg-white border border-light_gray/60 rounded-2xl px-4 py-3 flex items-center gap-3">
+                        <i class="fas fa-search text-accent"></i>
+                        <input id="menuSearchMobile" type="text" placeholder="Search dishes" class="w-full bg-transparent outline-none text-primary placeholder:text-t_gray/70">
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <button class="diet-filter-btn bg-accent text-white px-4 py-3 rounded-2xl text-sm font-bold" data-filter="all">All</button>
+                        <button class="diet-filter-btn bg-white border border-light_gray text-primary px-4 py-3 rounded-2xl text-sm font-bold" data-filter="veg">Veg</button>
+                        <button class="diet-filter-btn bg-white border border-light_gray text-primary px-4 py-3 rounded-2xl text-sm font-bold" data-filter="non-veg">Non-Veg</button>
+                        <button class="diet-filter-btn bg-white border border-light_gray text-primary px-4 py-3 rounded-2xl text-sm font-bold" data-filter="vegan">Vegan</button>
+                    </div>
+                    <div class="bg-white border border-light_gray/60 rounded-2xl px-4 py-3">
+                        <label for="menuSortMobile" class="sr-only">Sort menu</label>
+                        <select id="menuSortMobile" class="w-full bg-transparent outline-none text-primary font-semibold">
+                            <option value="featured">Sort: Featured</option>
+                            <option value="price-low">Sort: Price Low to High</option>
+                            <option value="price-high">Sort: Price High to Low</option>
+                            <option value="rating">Sort: Highest Rated</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="bg-secondary pt-24 pb-8">
@@ -338,8 +404,21 @@
         const emptyState = document.getElementById('emptyState');
         const tabButtons = document.querySelectorAll('.menu-tab-btn');
         const filterButtons = document.querySelectorAll('.diet-filter-btn');
-        const searchInput = document.getElementById('menuSearch');
-        const sortSelect = document.getElementById('menuSort');
+        const searchInputs = [
+            document.getElementById('menuSearch'),
+            document.getElementById('menuSearchMobileTop'),
+            document.getElementById('menuSearchMobile')
+        ].filter(Boolean);
+        const sortSelects = [
+            document.getElementById('menuSort'),
+            document.getElementById('menuSortMobile')
+        ].filter(Boolean);
+
+        const filterSheet = document.getElementById('filterSheet');
+        const filterSheetPanel = document.getElementById('filterSheetPanel');
+        const openFilterSheet = document.getElementById('openFilterSheet');
+        const closeFilterSheet = document.getElementById('closeFilterSheet');
+        const filterSheetOverlay = document.getElementById('filterSheetOverlay');
 
         let activeCategory = 'starters';
         let activeFilter = 'all';
@@ -424,6 +503,30 @@
             }, 180);
         }
 
+        function setSearchValue(value, source = null) {
+            searchInputs.forEach((input) => {
+                if (input !== source) input.value = value;
+            });
+        }
+
+        function setSortValue(value, source = null) {
+            sortSelects.forEach((select) => {
+                if (select !== source) select.value = value;
+            });
+        }
+
+        function openMobileFilterSheet() {
+            if (!filterSheet || !filterSheetPanel) return;
+            filterSheet.classList.remove('opacity-0', 'pointer-events-none');
+            filterSheetPanel.classList.remove('translate-y-full');
+        }
+
+        function closeMobileFilterSheet() {
+            if (!filterSheet || !filterSheetPanel) return;
+            filterSheet.classList.add('opacity-0', 'pointer-events-none');
+            filterSheetPanel.classList.add('translate-y-full');
+        }
+
         tabButtons.forEach((button) => {
             button.addEventListener('click', () => {
                 activeCategory = button.dataset.tab;
@@ -434,6 +537,7 @@
                 button.classList.add('bg-accent', 'text-white', 'shadow-lg', 'shadow-accent/20');
                 button.classList.remove('bg-white', 'text-primary', 'border', 'border-light_gray');
                 renderMenu();
+                if (window.innerWidth < 640) closeMobileFilterSheet();
             });
         });
 
@@ -450,15 +554,26 @@
             });
         });
 
-        searchInput.addEventListener('input', (event) => {
-            activeSearch = event.target.value;
-            renderMenu();
+        searchInputs.forEach((input) => {
+            input.addEventListener('input', (event) => {
+                activeSearch = event.target.value;
+                setSearchValue(activeSearch, input);
+                renderMenu();
+            });
         });
 
-        sortSelect.addEventListener('change', (event) => {
-            activeSort = event.target.value;
-            renderMenu();
+        sortSelects.forEach((select) => {
+            select.addEventListener('change', (event) => {
+                activeSort = event.target.value;
+                setSortValue(activeSort, select);
+                renderMenu();
+                if (window.innerWidth < 640) closeMobileFilterSheet();
+            });
         });
+
+        if (openFilterSheet) openFilterSheet.addEventListener('click', openMobileFilterSheet);
+        if (closeFilterSheet) closeFilterSheet.addEventListener('click', closeMobileFilterSheet);
+        if (filterSheetOverlay) filterSheetOverlay.addEventListener('click', closeMobileFilterSheet);
 
         renderMenu();
     </script>
