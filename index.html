@@ -42,6 +42,11 @@
         .drawer-transition { transition: transform 0.3s ease-in-out; }
         .hide-scrollbar::-webkit-scrollbar { display: none; }
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        #signatureSlider {
+            -webkit-overflow-scrolling: touch;
+            overscroll-behavior-x: contain;
+            touch-action: pan-x;
+        }
     </style>
 </head>
 <body class="bg-white text-t_gray overflow-x-hidden">
@@ -449,7 +454,7 @@
             </div>
         </div>
         <div class="w-screen relative left-1/2 -translate-x-1/2 px-4 md:px-8 lg:px-10">
-            <div id="signatureSlider" class="flex gap-6 overflow-x-auto pb-2 snap-x snap-mandatory hide-scrollbar">
+            <div id="signatureSlider" class="flex gap-6 overflow-x-auto pb-2 snap-x snap-proximity hide-scrollbar">
                 <article class="group min-w-[280px] md:min-w-[360px] lg:min-w-[calc(25%-18px)] h-[460px] rounded-[28px] overflow-hidden relative snap-start shadow-xl reveal opacity-0 translate-y-8 transition-all duration-700">
                     <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1200&q=80" alt="Romantic evening" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/30 to-transparent p-7 flex flex-col justify-end"><h3 class="text-white text-3xl mb-2">Romantic Evenings</h3><p class="text-white/80 text-sm">Candle glow, soft jazz, and chef-crafted tasting plates.</p></div>
@@ -503,15 +508,15 @@
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                         <div class="flex flex-col">
                             <label class="text-primary font-bold mb-2">Date</label>
-                            <input type="date" class="bg-pale border border-light_gray p-4 rounded-lg focus:border-accent outline-none">
+                            <input type="date" class="w-full bg-pale border border-light_gray p-4 rounded-lg focus:border-accent outline-none">
                         </div>
                         <div class="flex flex-col">
                             <label class="text-primary font-bold mb-2">Time</label>
-                            <input type="time" class="bg-pale border border-light_gray p-4 rounded-lg focus:border-accent outline-none">
+                            <input type="time" class="w-full bg-pale border border-light_gray p-4 rounded-lg focus:border-accent outline-none">
                         </div>
                         <div class="flex flex-col">
                             <label class="text-primary font-bold mb-2">Party Size</label>
-                            <select class="bg-pale border border-light_gray p-4 rounded-lg focus:border-accent outline-none appearance-none">
+                            <select class="w-full bg-pale border border-light_gray p-4 rounded-lg focus:border-accent outline-none appearance-none">
                                 <option>1 Guest</option>
                                 <option>2 Guests</option>
                                 <option>4 Guests</option>
@@ -520,9 +525,9 @@
                         </div>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <input type="text" placeholder="Your Name" class="bg-pale border border-light_gray p-4 rounded-lg focus:border-accent outline-none">
-                        <input type="email" placeholder="Email Address" class="bg-pale border border-light_gray p-4 rounded-lg focus:border-accent outline-none">
-                        <input type="tel" placeholder="Phone Number" class="bg-pale border border-light_gray p-4 rounded-lg focus:border-accent outline-none">
+                        <input type="text" placeholder="Your Name" class="w-full bg-pale border border-light_gray p-4 rounded-lg focus:border-accent outline-none">
+                        <input type="email" placeholder="Email Address" class="w-full bg-pale border border-light_gray p-4 rounded-lg focus:border-accent outline-none">
+                        <input type="tel" placeholder="Phone Number" class="w-full bg-pale border border-light_gray p-4 rounded-lg focus:border-accent outline-none">
                     </div>
                     <textarea placeholder="Message (Optional)" rows="4" class="w-full bg-pale border border-light_gray p-4 rounded-lg focus:border-accent outline-none"></textarea>
                     <div class="text-center">
@@ -870,27 +875,30 @@
         // Signature slider auto-move animation.
         const signatureSlider = document.getElementById('signatureSlider');
         if (signatureSlider) {
-            let isPaused = false;
-            let rafId;
-            const speed = 0.35;
+            const isTouchDevice = window.matchMedia('(pointer: coarse)').matches;
+            if (!isTouchDevice) {
+                let isPaused = false;
+                let rafId;
+                const speed = 0.35;
 
-            const animateSlider = () => {
-                if (!isPaused) {
-                    signatureSlider.scrollLeft += speed;
-                    if (signatureSlider.scrollLeft >= signatureSlider.scrollWidth - signatureSlider.clientWidth) {
-                        signatureSlider.scrollLeft = 0;
+                const animateSlider = () => {
+                    if (!isPaused) {
+                        signatureSlider.scrollLeft += speed;
+                        if (signatureSlider.scrollLeft >= signatureSlider.scrollWidth - signatureSlider.clientWidth) {
+                            signatureSlider.scrollLeft = 0;
+                        }
                     }
-                }
-                rafId = requestAnimationFrame(animateSlider);
-            };
+                    rafId = requestAnimationFrame(animateSlider);
+                };
 
-            signatureSlider.addEventListener('mouseenter', () => { isPaused = true; });
-            signatureSlider.addEventListener('mouseleave', () => { isPaused = false; });
-            signatureSlider.addEventListener('touchstart', () => { isPaused = true; }, { passive: true });
-            signatureSlider.addEventListener('touchend', () => { isPaused = false; });
+                signatureSlider.addEventListener('mouseenter', () => { isPaused = true; });
+                signatureSlider.addEventListener('mouseleave', () => { isPaused = false; });
+                signatureSlider.addEventListener('touchstart', () => { isPaused = true; }, { passive: true });
+                signatureSlider.addEventListener('touchend', () => { isPaused = false; });
 
-            animateSlider();
-            window.addEventListener('beforeunload', () => cancelAnimationFrame(rafId));
+                animateSlider();
+                window.addEventListener('beforeunload', () => cancelAnimationFrame(rafId));
+            }
         }
     </script>
 </body>
