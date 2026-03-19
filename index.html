@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Too Mikkii Tapas | Tree-Lined Cafe Dining</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#000000',
+                        secondary: '#221f1f',
+                        accent: '#cf3247',
+                        t_gray: '#6a6a6a',
+                        pale: '#fff8f9',
+                        light_gray: '#DADADA'
+                    },
+                    fontFamily: {
+                        heading: ['Philosopher', 'sans-serif'],
+                        body: ['Inter Tight', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter Tight', sans-serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Philosopher', sans-serif; }
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .social-box:hover .social-overlay { opacity: 1; }
+        .drawer-transition { transition: transform 0.3s ease-in-out; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-white text-t_gray overflow-x-hidden">
+
+    <!-- Mobile Quick Bar -->
+    <div class="lg:hidden bg-[#FFF8F9] border-t-2 border-accent py-2.5">
+        <div class="max-w-[1590px] mx-auto px-4 flex items-center justify-between text-[11px] font-semibold text-primary">
+            <a href="tel:+919654525880" class="flex items-center gap-1.5"><i class="fas fa-phone text-accent"></i> +91 96545 25880</a>
+            <a href="https://wa.me/919654525880" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5"><i class="fab fa-whatsapp text-accent"></i> WhatsApp Order</a>
+        </div>
+    </div>
+
+    <!-- Top Info Bar -->
+    <div class="hidden lg:block bg-[#FFF8F9] border-t-2 border-accent py-4">
+        <div class="max-w-[1590px] mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center space-x-8">
+                <a href="tel:+919654525880" class="flex items-center text-primary text-sm font-semibold">
+                    <i class="fas fa-headphones text-accent mr-2"></i> +91 96545 25880
+                </a>
+                <div class="flex items-center text-primary text-sm font-semibold">
+                    <i class="fas fa-map-marker-alt text-accent mr-2"></i> Alexander M Kadakin Marg, Chanakyapuri, New Delhi 110021
+                </div>
+            </div>
+            <div class="flex items-center space-x-6">
+                <a href="#" class="w-9 h-9 rounded-full border border-light_gray text-primary flex items-center justify-center hover:bg-accent hover:border-accent hover:text-white transition-all" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="w-9 h-9 rounded-full border border-light_gray text-primary flex items-center justify-center hover:bg-accent hover:border-accent hover:text-white transition-all" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/919654525880" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full border border-light_gray text-primary flex items-center justify-center hover:bg-accent hover:border-accent hover:text-white transition-all" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <button id="openDrawer" class="bg-[#F8F8F8] border border-light_gray p-2 rounded-lg hover:border-accent transition-all">
+                    <img src="https://designingmedia.com/tasteline/wp-content/uploads/2025/11/hamburger-icon.png" class="w-6" alt="menu">
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-light_gray lg:border-none shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
+        <div class="max-w-[1590px] mx-auto px-4 py-4 md:py-6 flex justify-between items-center">
+            <a href="index.html" class="block">
+                <h2 class="text-primary text-3xl sm:text-4xl leading-none">Too Mikkii Tapas</h2>
+                <p class="text-[11px] uppercase tracking-[1.8px] text-t_gray mt-1">Chanakyapuri, New Delhi</p>
+            </a>
+
+            <nav class="hidden lg:flex items-center space-x-8 text-primary font-bold">
+                <a href="index.html" class="hover:text-accent">Home</a>
+                <a href="about.html" class="hover:text-accent">About Us</a>
+                <a href="menu.html" class="hover:text-accent">Menu</a>
+                <a href="reservation.html" class="hover:text-accent">Reservation</a>
+                <a href="index.html#gallery" class="hover:text-accent">Gallery</a>
+                <a href="contact.html" class="hover:text-accent">Contact</a>
+            </nav>
+
+            <div class="hidden xl:flex items-center space-x-4">
+                <a href="#" class="flex flex-col items-center border border-accent/10 rounded-xl px-6 py-2 shadow-lg hover:bg-accent group transition-all">
+                    <span class="flex items-center text-accent font-bold group-hover:text-white transition-colors">
+                        <i class="fas fa-chair mr-2"></i> Reserve a Table <i class="fas fa-angle-right ml-2"></i>
+                    </span>
+                    <span class="text-[10px] text-t_gray group-hover:text-white/80">Instant confirmation</span>
+                </a>
+                <a href="https://wa.me/919654525880" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center bg-accent rounded-xl px-6 py-2 shadow-lg hover:bg-secondary group transition-all">
+                    <span class="flex items-center text-white font-bold transition-colors">
+                        <i class="fab fa-whatsapp mr-2"></i> Order via WhatsApp <i class="fas fa-angle-right ml-2"></i>
+                    </span>
+                    <span class="text-[10px] text-white/80">Fast direct ordering</span>
+                </a>
+            </div>
+
+            <button class="lg:hidden text-primary text-2xl w-11 h-11 rounded-xl border border-light_gray bg-pale/70" id="mobileMenuBtn" aria-label="Open menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-primary overflow-hidden">
+        <div class="absolute inset-0 bg-[url('./public/img5.webp')] bg-cover bg-center opacity-45 md:opacity-40"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-primary/55 via-primary/35 to-primary/30 md:bg-none"></div>
+        <div class="max-w-[1590px] mx-auto px-4 pt-14 pb-16 md:pt-20 md:pb-32 relative z-10">
+            <div class="flex flex-col lg:flex-row gap-8 md:gap-12 items-start">
+                <div class="w-full lg:w-[64%]">
+                    <h1 class="text-white text-[56px] sm:text-6xl md:text-7xl lg:text-[120px] leading-[1.05] mb-8 md:mb-12 max-w-[12ch]">
+                        Savor the Taste. <br> Share the Moment.
+                    </h1>
+                    <div class="border-[10px] border-white/10 rounded-[40px] overflow-hidden w-full shadow-2xl">
+                        <img src="./public/img9.jpeg" alt="Too Mikkii Tapas dish" class="w-full h-[360px] sm:h-[420px] md:h-[520px] object-cover">
+                    </div>
+                </div>
+                <div class="w-full lg:w-[36%] lg:mt-24">
+                    <div class="hidden md:block border-[10px] border-white/10 rounded-[40px] overflow-hidden mb-12 shadow-2xl">
+                        <img src="./public/img2.webp" alt="Too Mikkii Tapas beverage" class="w-full h-[280px] sm:h-[320px] md:h-[360px] object-cover">
+                    </div>
+                    <div class="flex items-center gap-4 mb-6">
+                        <img src="https://designingmedia.com/tasteline/wp-content/uploads/2025/11/google-icon.jpg" class="w-16 rounded-full" alt="Google">
+                        <div>
+                            <div class="flex text-yellow-400 text-xs gap-1 mb-1">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="text-white font-heading text-4xl font-bold">4.8/5</span>
+                                <div class="w-[1px] h-6 bg-white/20"></div>
+                                <p class="text-white/80 text-sm">Reviews from 400+ happy diners</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-white text-base md:text-xl leading-relaxed mb-8 md:mb-10 max-w-md">
+                        A modern dining experience where bold flavors meet warm hospitality. Fresh ingredients, crafted with passion— your table is ready.
+                    </p>
+                    <div class="flex flex-wrap gap-3 md:gap-4 items-center w-full">
+                        <a href="#" class="w-full sm:w-auto text-center bg-accent text-white px-8 py-4 rounded-xl font-bold hover:bg-white hover:text-primary transition-all">Book a Table</a>
+                        <a href="#" class="w-full sm:w-auto text-center bg-white/20 text-white px-8 py-4 rounded-xl font-bold hover:bg-accent transition-all">View Menu</a>
+                    </div>
+                    <ul class="mt-6 flex flex-col space-y-2 text-[12px] text-light_gray">
+                        <li><i class="fas fa-circle text-[4px] align-middle mr-2"></i> Instant confirmation.</li>
+                        <li><i class="fas fa-circle text-[4px] align-middle mr-2"></i> Free to book. <span class="text-accent">Cancel anytime.</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Dishes -->
+    <section class="py-24 bg-pale">
+        <div class="max-w-[1590px] mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-accent uppercase tracking-[3px] text-sm font-semibold font-body">Featured Dishes</span>
+                <h2 class="text-4xl md:text-[70px] text-primary mt-2 mb-6">A Taste of Too Mikkii Tapas.</h2>
+                <p class="max-w-2xl mx-auto">From fresh plates to signature beverages, here’s a glimpse of what makes Too Mikkii Tapas unforgettable.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+                <!-- Product 1 -->
+                <div class="bg-white p-4 rounded-[20px] border-b-2 border-accent shadow-sm group hover:shadow-xl transition-all duration-500">
+                    <div class="rounded-[15px] overflow-hidden mb-6">
+                        <img src="./public/img3.webp" class="w-full h-[300px] object-cover transform group-hover:scale-110 transition-transform duration-700" alt="Too Mikkii Tapas breakfast">
+                    </div>
+                    <div class="px-4 pb-4 text-left">
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="flex text-[#FFC045] text-sm gap-1">
+                                <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                            </div>
+                            <span class="text-3xl text-primary font-heading">$9</span>
+                        </div>
+                        <h3 class="text-2xl text-primary mb-2 hover:text-accent transition-colors">Roasted Tomato Soup</h3>
+                        <p class="text-sm mb-6">Slow-simmered tomatoes, basil, olive oil drizzle.</p>
+                        <div class="flex items-center gap-4">
+                            <a href="#" class="text-accent font-bold text-sm uppercase">Add to Cart <i class="fas fa-shopping-cart ml-1"></i></a>
+                            <a href="#" class="text-primary font-bold text-sm uppercase hover:text-accent">View Details <i class="fas fa-angle-right ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="bg-white p-4 rounded-[20px] border-b-2 border-accent shadow-sm group hover:shadow-xl transition-all duration-500">
+                    <div class="rounded-[15px] overflow-hidden mb-6">
+                        <img src="./public/img7.webp" class="w-full h-[300px] object-cover transform group-hover:scale-110 transition-transform duration-700" alt="Too Mikkii Tapas creamy dish">
+                    </div>
+                    <div class="px-4 pb-4 text-left">
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="flex text-[#FFC045] text-sm gap-1">
+                                <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                            </div>
+                            <span class="text-3xl text-primary font-heading">$8</span>
+                        </div>
+                        <h3 class="text-2xl text-primary mb-2 hover:text-accent transition-colors">Garlic Flatbread</h3>
+                        <p class="text-sm mb-6">Golden edges, soft center, brushed with herb butter.</p>
+                        <div class="flex items-center gap-4">
+                            <a href="#" class="text-accent font-bold text-sm uppercase">Add to Cart <i class="fas fa-shopping-cart ml-1"></i></a>
+                            <a href="#" class="text-primary font-bold text-sm uppercase hover:text-accent">View Details <i class="fas fa-angle-right ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="bg-white p-4 rounded-[20px] border-b-2 border-accent shadow-sm group hover:shadow-xl transition-all duration-500">
+                    <div class="rounded-[15px] overflow-hidden mb-6">
+                        <img src="./public/img8.webp" class="w-full h-[300px] object-cover transform group-hover:scale-110 transition-transform duration-700" alt="Too Mikkii Tapas special platter">
+                    </div>
+                    <div class="px-4 pb-4 text-left">
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="flex text-[#FFC045] text-sm gap-1">
+                                <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                            </div>
+                            <span class="text-3xl text-primary font-heading">$18</span>
+                        </div>
+                        <h3 class="text-2xl text-primary mb-2 hover:text-accent transition-colors">Truffle-Infused Risotto</h3>
+                        <p class="text-sm mb-6">Creamy arborio rice, wild mushrooms, parmesan shavings, truffle oil.</p>
+                        <div class="flex items-center gap-4">
+                            <a href="#" class="text-accent font-bold text-sm uppercase">Add to Cart <i class="fas fa-shopping-cart ml-1"></i></a>
+                            <a href="#" class="text-primary font-bold text-sm uppercase hover:text-accent">View Details <i class="fas fa-angle-right ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="bg-white p-4 rounded-[20px] border-b-2 border-accent shadow-sm group hover:shadow-xl transition-all duration-500">
+                    <div class="rounded-[15px] overflow-hidden mb-6">
+                        <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1000&q=80" class="w-full h-[300px] object-cover transform group-hover:scale-110 transition-transform duration-700" alt="Smash Burger">
+                    </div>
+                    <div class="px-4 pb-4 text-left">
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="flex text-[#FFC045] text-sm gap-1">
+                                <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                            </div>
+                            <span class="text-3xl text-primary font-heading">$14</span>
+                        </div>
+                        <h3 class="text-2xl text-primary mb-2 hover:text-accent transition-colors">Smoked Beef Burger</h3>
+                        <p class="text-sm mb-6">Char-grilled patty, cheddar, pickles, and house aioli.</p>
+                        <div class="flex items-center gap-4">
+                            <a href="#" class="text-accent font-bold text-sm uppercase">Add to Cart <i class="fas fa-shopping-cart ml-1"></i></a>
+                            <a href="#" class="text-primary font-bold text-sm uppercase hover:text-accent">View Details <i class="fas fa-angle-right ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="bg-white p-4 rounded-[20px] border-b-2 border-accent shadow-sm group hover:shadow-xl transition-all duration-500">
+                    <div class="rounded-[15px] overflow-hidden mb-6">
+                        <img src="https://images.unsplash.com/photo-1546039907-7fa05f864c02?auto=format&fit=crop&w=1000&q=80" class="w-full h-[300px] object-cover transform group-hover:scale-110 transition-transform duration-700" alt="Avocado Toast">
+                    </div>
+                    <div class="px-4 pb-4 text-left">
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="flex text-[#FFC045] text-sm gap-1">
+                                <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                            </div>
+                            <span class="text-3xl text-primary font-heading">$12</span>
+                        </div>
+                        <h3 class="text-2xl text-primary mb-2 hover:text-accent transition-colors">Avocado Crunch Toast</h3>
+                        <p class="text-sm mb-6">Sourdough, smashed avocado, feta, chili flakes, lemon.</p>
+                        <div class="flex items-center gap-4">
+                            <a href="#" class="text-accent font-bold text-sm uppercase">Add to Cart <i class="fas fa-shopping-cart ml-1"></i></a>
+                            <a href="#" class="text-primary font-bold text-sm uppercase hover:text-accent">View Details <i class="fas fa-angle-right ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="bg-white p-4 rounded-[20px] border-b-2 border-accent shadow-sm group hover:shadow-xl transition-all duration-500">
+                    <div class="rounded-[15px] overflow-hidden mb-6">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1000&q=80" class="w-full h-[300px] object-cover transform group-hover:scale-110 transition-transform duration-700" alt="Woodfired Pizza">
+                    </div>
+                    <div class="px-4 pb-4 text-left">
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="flex text-[#FFC045] text-sm gap-1">
+                                <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                            </div>
+                            <span class="text-3xl text-primary font-heading">$16</span>
+                        </div>
+                        <h3 class="text-2xl text-primary mb-2 hover:text-accent transition-colors">Woodfired Margherita</h3>
+                        <p class="text-sm mb-6">San marzano sauce, fior di latte, basil, olive oil.</p>
+                        <div class="flex items-center gap-4">
+                            <a href="#" class="text-accent font-bold text-sm uppercase">Add to Cart <i class="fas fa-shopping-cart ml-1"></i></a>
+                            <a href="#" class="text-primary font-bold text-sm uppercase hover:text-accent">View Details <i class="fas fa-angle-right ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="#" class="bg-primary text-white px-10 py-4 rounded-xl font-bold hover:bg-accent transition-all inline-block">View Full Menu</a>
+            </div>
+        </div>
+    </section>
+
+<!-- About Us Section -->
+    <section class="py-24 relative overflow-hidden">
+        <div class="absolute bottom-0 left-0 opacity-10">
+            <img src="https://designingmedia.com/tasteline/wp-content/uploads/2025/11/experience-section-logo-icon.png" alt="bg-icon">
+        </div>
+        <div class="max-w-[1590px] mx-auto px-4">
+            <div class="flex flex-col lg:flex-row gap-16 items-center">
+                <div class="w-full lg:w-[39%]">
+                    <span class="text-accent uppercase tracking-[3px] text-sm font-semibold font-body">About Us</span>
+                    <h2 class="text-4xl md:text-[70px] leading-[1.05] text-primary mt-4 mb-8">Our Story, <br> Your Experience.</h2>
+                    <p class="mb-6">At Too Mikkii Tapas, food isn’t just about eating — it’s about connection. We started with a simple belief: every meal should be a moment worth savoring, shared with the people who matter most.</p>
+                    <p class="mb-8">Our kitchen is guided by a chef-driven philosophy: bold flavors, seasonal ingredients, and timeless techniques. Each plate reflects creativity and care.</p>
+                    <a href="#" class="bg-accent text-white px-12 py-4 rounded-xl font-bold hover:bg-secondary transition-all inline-block shadow-lg shadow-accent/20">Read More</a>
+                    
+                    <div class="mt-12 text-right hidden lg:block">
+                        <img src="./public/img5.webp" class="rounded-[30px] inline-block -mr-12 border-4 border-white shadow-xl w-[280px] h-[220px] object-cover" alt="Outdoor seating detail">
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-[61%] flex flex-col md:flex-row gap-8 relative">
+                    <!-- Overlapping Quote Card -->
+                    <div class="hidden md:flex absolute top-1/3 -left-12 bg-secondary p-6 rounded-2xl w-56 flex-col items-center text-center z-20 shadow-2xl">
+                        <img src="https://designingmedia.com/tasteline/wp-content/uploads/2025/11/quote-icon-icon.png" class="mb-2" alt="quote">
+                        <h5 class="text-white italic font-normal text-lg mb-4">“Food should be felt, not just tasted.”</h5>
+                        <div class="w-6 h-[2px] bg-accent mb-2"></div>
+                        <p class="text-white text-xs font-bold uppercase tracking-wider">Kevin James</p>
+                    </div>
+
+                    <div class="w-full md:w-1/2">
+                        <img src="./public/img6.webp" class="rounded-[30px] w-full h-[560px] object-cover" alt="Cafe garden ambience">
+                    </div>
+                    <div class="w-full md:w-1/2 md:pt-10">
+                        <p class="mb-8 pl-4 border-l-2 border-accent/20 italic">Too Mikkii Tapas is more than dishes. It’s warm lighting, relaxed conversation, and an outdoor setting that makes you feel at home.</p>
+                        <img src="./public/img4.webp" class="rounded-[30px] w-full h-[260px] object-cover mb-10" alt="Cafe dining">
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-lg"><img src="https://designingmedia.com/tasteline/wp-content/uploads/2025/11/leaf-icon.png" class="w-6"></div>
+                                <div><h4 class="text-accent text-xl font-bold">Freshness First</h4><p class="text-sm">Local, seasonal ingredients.</p></div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-lg"><img src="https://designingmedia.com/tasteline/wp-content/uploads/2025/11/craft-icon.png" class="w-6"></div>
+                                <div><h4 class="text-accent text-xl font-bold">Craft & Care</h4><p class="text-sm">Plate & pour designed to impress.</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Add after Hero: Image Masonry Gallery -->
+    <section id="gallery" class="py-24 bg-pale">
+        <div class="max-w-[1590px] mx-auto px-4">
+            <div class="text-center mb-14 reveal opacity-0 translate-y-8 transition-all duration-700">
+                <span class="text-accent uppercase tracking-[3px] text-sm font-semibold font-body">Gallery</span>
+                <h2 class="text-4xl md:text-[70px] text-primary mt-2 mb-4">Moments Worth Posting.</h2>
+                <p class="max-w-2xl mx-auto">A visual journal of Too Mikkii Tapas - from pizza nights to cafe mornings.</p>
+            </div>
+
+            <div class="columns-1 sm:columns-2 lg:columns-4 [column-gap:1.5rem]">
+                <a href="#" class="group block mb-6 break-inside-avoid rounded-[22px] overflow-hidden relative reveal opacity-0 translate-y-8 transition-all duration-700">
+                    <img src="./public/img2.webp" alt="Cafe latte" class="w-full h-[440px] object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/45 transition-all duration-500 flex items-end p-6"><p class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-lg font-semibold">Morning Rituals</p></div>
+                </a>
+                <a href="#" class="group block mb-6 break-inside-avoid rounded-[22px] overflow-hidden relative reveal opacity-0 translate-y-8 transition-all duration-700">
+                    <img src="./public/img5.webp" alt="Tree-lined seating" class="w-full h-[300px] object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/45 transition-all duration-500 flex items-end p-6"><p class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-lg font-semibold">Golden Hour Tables</p></div>
+                </a>
+                <a href="#" class="group block mb-6 break-inside-avoid rounded-[22px] overflow-hidden relative reveal opacity-0 translate-y-8 transition-all duration-700">
+                    <img src="./public/img3.webp" alt="Breakfast platter" class="w-full h-[380px] object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/45 transition-all duration-500 flex items-end p-6"><p class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-lg font-semibold">Sweet Detail</p></div>
+                </a>
+                <a href="#" class="group block mb-6 break-inside-avoid rounded-[22px] overflow-hidden relative reveal opacity-0 translate-y-8 transition-all duration-700">
+                    <img src="./public/img4.webp" alt="Coffee cup" class="w-full h-[320px] object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/45 transition-all duration-500 flex items-end p-6"><p class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-lg font-semibold">Bean to Brew</p></div>
+                </a>
+                <a href="#" class="group block mb-6 break-inside-avoid rounded-[22px] overflow-hidden relative reveal opacity-0 translate-y-8 transition-all duration-700">
+                    <img src="./public/img6.webp" alt="Cafe ambience" class="w-full h-[460px] object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/45 transition-all duration-500 flex items-end p-6"><p class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-lg font-semibold">Behind the Bar</p></div>
+                </a>
+                <a href="#" class="group block mb-6 break-inside-avoid rounded-[22px] overflow-hidden relative reveal opacity-0 translate-y-8 transition-all duration-700">
+                    <img src="./public/img7.webp" alt="Creamy dish" class="w-full h-[300px] object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/45 transition-all duration-500 flex items-end p-6"><p class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-lg font-semibold">Brunch Notes</p></div>
+                </a>
+                <a href="#" class="group block mb-6 break-inside-avoid rounded-[22px] overflow-hidden relative reveal opacity-0 translate-y-8 transition-all duration-700">
+                    <img src="./public/img8.webp" alt="Dinner plate" class="w-full h-[360px] object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/45 transition-all duration-500 flex items-end p-6"><p class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-lg font-semibold">Night Glow</p></div>
+                </a>
+                <a href="#" class="group block mb-6 break-inside-avoid rounded-[22px] overflow-hidden relative reveal opacity-0 translate-y-8 transition-all duration-700">
+                    <img src="./public/img1.webp" alt="Pizza special" class="w-full h-[420px] object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/45 transition-all duration-500 flex items-end p-6"><p class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-lg font-semibold">After Hours Pour</p></div>
+                </a>
+                <a href="#" class="group block mb-6 break-inside-avoid rounded-[22px] overflow-hidden relative reveal opacity-0 translate-y-8 transition-all duration-700">
+                    <img src="./public/img3.webp" alt="Toast and tea" class="w-full h-[340px] object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/45 transition-all duration-500 flex items-end p-6"><p class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-lg font-semibold">Chef's Signature</p></div>
+                </a>
+                <a href="#" class="group block mb-6 break-inside-avoid rounded-[22px] overflow-hidden relative reveal opacity-0 translate-y-8 transition-all duration-700">
+                    <img src="./public/img4.webp" alt="Coffee foam" class="w-full h-[280px] object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/45 transition-all duration-500 flex items-end p-6"><p class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-lg font-semibold">Foam Stories</p></div>
+                </a>
+                <a href="#" class="group block mb-6 break-inside-avoid rounded-[22px] overflow-hidden relative reveal opacity-0 translate-y-8 transition-all duration-700">
+                    <img src="./public/img5.webp" alt="Outdoor table detail" class="w-full h-[390px] object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/45 transition-all duration-500 flex items-end p-6"><p class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-lg font-semibold">Table Textures</p></div>
+                </a>
+                <a href="#" class="group block mb-6 break-inside-avoid rounded-[22px] overflow-hidden relative reveal opacity-0 translate-y-8 transition-all duration-700">
+                    <img src="./public/img6.webp" alt="Cafe gathering" class="w-full h-[310px] object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/45 transition-all duration-500 flex items-end p-6"><p class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-lg font-semibold">Shared Moments</p></div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+<!-- Parallax CTA Section -->
+    <section class="relative py-32 bg-primary overflow-hidden">
+        <div class="absolute inset-0 parallax-bg bg-[url('https://designingmedia.com/tasteline/wp-content/uploads/2025/11/craving-section-bg.jpg')] opacity-45"></div>
+        <div class="max-w-4xl mx-auto px-4 relative z-10 text-center">
+            <h2 class="text-white text-5xl md:text-7xl mb-8 leading-tight">Ready to Savor Something Special?</h2>
+            <p class="text-white/80 text-xl mb-12">Whether you’re craving a cozy dinner, planning a celebration, or just want a taste of something unforgettable — we’ve got a table waiting for you.</p>
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="#" class="bg-white text-primary px-10 py-4 rounded-xl font-bold hover:bg-accent hover:text-white transition-all">Book a Table</a>
+                <a href="#" class="bg-white/20 text-white px-10 py-4 rounded-xl font-bold hover:bg-accent transition-all">View Menu</a>
+            </div>
+        </div>
+    </section>
+
+<!-- Add after Hero/Social: Signature Experience Strip -->
+    <section class="py-20 bg-pale overflow-hidden">
+        <div class="max-w-[1590px] mx-auto px-4">
+            <div class="flex items-end justify-between mb-10 reveal opacity-0 translate-y-8 transition-all duration-700">
+                <div>
+                    <span class="text-accent uppercase tracking-[3px] text-sm font-semibold font-body">Signature Experience</span>
+                    <h2 class="text-4xl md:text-[56px] text-primary mt-2">Choose Your Mood.</h2>
+                </div>
+                <p class="hidden md:block text-sm max-w-md">Scroll sideways to explore curated vibes designed for every kind of visit.</p>
+            </div>
+        </div>
+        <div class="w-screen relative left-1/2 -translate-x-1/2 px-4 md:px-8 lg:px-10">
+            <div id="signatureSlider" class="flex gap-6 overflow-x-auto pb-2 snap-x snap-mandatory hide-scrollbar">
+                <article class="group min-w-[280px] md:min-w-[360px] lg:min-w-[calc(25%-18px)] h-[460px] rounded-[28px] overflow-hidden relative snap-start shadow-xl reveal opacity-0 translate-y-8 transition-all duration-700">
+                    <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1200&q=80" alt="Romantic evening" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/30 to-transparent p-7 flex flex-col justify-end"><h3 class="text-white text-3xl mb-2">Romantic Evenings</h3><p class="text-white/80 text-sm">Candle glow, soft jazz, and chef-crafted tasting plates.</p></div>
+                </article>
+                <article class="group min-w-[280px] md:min-w-[360px] lg:min-w-[calc(25%-18px)] h-[460px] rounded-[28px] overflow-hidden relative snap-start shadow-xl reveal opacity-0 translate-y-8 transition-all duration-700">
+                    <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80" alt="Work and chill" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/30 to-transparent p-7 flex flex-col justify-end"><h3 class="text-white text-3xl mb-2">Work & Chill</h3><p class="text-white/80 text-sm">Fast Wi-Fi, crafted coffee, and calm corners to focus.</p></div>
+                </article>
+                <article class="group min-w-[280px] md:min-w-[360px] lg:min-w-[calc(25%-18px)] h-[460px] rounded-[28px] overflow-hidden relative snap-start shadow-xl reveal opacity-0 translate-y-8 transition-all duration-700">
+                    <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1200&q=80" alt="Weekend vibes" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/30 to-transparent p-7 flex flex-col justify-end"><h3 class="text-white text-3xl mb-2">Weekend Vibes</h3><p class="text-white/80 text-sm">Live energy, brunch favorites, and indulgent desserts.</p></div>
+                </article>
+                <article class="group min-w-[280px] md:min-w-[360px] lg:min-w-[calc(25%-18px)] h-[460px] rounded-[28px] overflow-hidden relative snap-start shadow-xl reveal opacity-0 translate-y-8 transition-all duration-700">
+                    <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1200&q=80" alt="Chef's table" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/30 to-transparent p-7 flex flex-col justify-end"><h3 class="text-white text-3xl mb-2">Chef's Table</h3><p class="text-white/80 text-sm">A front-row seat to texture, aroma, and artistry.</p></div>
+                </article>
+                <article class="group min-w-[280px] md:min-w-[360px] lg:min-w-[calc(25%-18px)] h-[460px] rounded-[28px] overflow-hidden relative snap-start shadow-xl reveal opacity-0 translate-y-8 transition-all duration-700">
+                    <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=1200&q=80" alt="Sunset lounge" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/30 to-transparent p-7 flex flex-col justify-end"><h3 class="text-white text-3xl mb-2">Sunset Lounge</h3><p class="text-white/80 text-sm">Golden light, relaxed seating, and signature pours.</p></div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Video Section -->
+    <section class="py-24 bg-white">
+        <div class="max-w-[1590px] mx-auto px-4">
+            <div class="relative rounded-[34px] overflow-hidden shadow-2xl reveal opacity-0 translate-y-8 transition-all duration-700">
+                <video class="w-full h-[320px] md:h-[560px] object-cover" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1400&q=80">
+                    <source src="https://cdn.coverr.co/videos/coverr-pouring-coffee-1579/1080p.mp4" type="video/mp4">
+                </video>
+                <div class="absolute inset-0 bg-secondary/40 flex flex-col items-center justify-center text-center px-6">
+                    <p class="text-white uppercase tracking-[4px] text-xs md:text-sm mb-4">Atmosphere in Motion</p>
+                    <h2 class="text-white text-4xl md:text-6xl mb-8">Feel the Too Mikkii Tapas Ambience.</h2>
+                    <button id="openVideoModal" class="w-20 h-20 rounded-full bg-white/30 border border-white/60 backdrop-blur-md text-white text-2xl flex items-center justify-center hover:bg-accent hover:border-accent hover:scale-105 transition-all shadow-xl"><i class="fas fa-play ml-1"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- Reservation Section -->
+    <section class="py-24 bg-pale">
+        <div class="max-w-[1590px] mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-accent uppercase tracking-[3px] text-sm font-semibold font-body">Reservations</span>
+                <h2 class="text-4xl md:text-[70px] text-primary mt-4 mb-6">Reserve or Order in Seconds.</h2>
+                <p class="max-w-3xl mx-auto">Skip the wait and secure your spot instantly. Choose your time, confirm instantly, and enjoy Too Mikkii Tapas without the hassle.</p>
+            </div>
+
+            <div class="bg-white p-8 md:p-12 rounded-[30px] shadow-2xl">
+                <form class="space-y-8">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="flex flex-col">
+                            <label class="text-primary font-bold mb-2">Date</label>
+                            <input type="date" class="bg-pale border border-light_gray p-4 rounded-lg focus:border-accent outline-none">
+                        </div>
+                        <div class="flex flex-col">
+                            <label class="text-primary font-bold mb-2">Time</label>
+                            <input type="time" class="bg-pale border border-light_gray p-4 rounded-lg focus:border-accent outline-none">
+                        </div>
+                        <div class="flex flex-col">
+                            <label class="text-primary font-bold mb-2">Party Size</label>
+                            <select class="bg-pale border border-light_gray p-4 rounded-lg focus:border-accent outline-none appearance-none">
+                                <option>1 Guest</option>
+                                <option>2 Guests</option>
+                                <option>4 Guests</option>
+                                <option>6+ Guests</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <input type="text" placeholder="Your Name" class="bg-pale border border-light_gray p-4 rounded-lg focus:border-accent outline-none">
+                        <input type="email" placeholder="Email Address" class="bg-pale border border-light_gray p-4 rounded-lg focus:border-accent outline-none">
+                        <input type="tel" placeholder="Phone Number" class="bg-pale border border-light_gray p-4 rounded-lg focus:border-accent outline-none">
+                    </div>
+                    <textarea placeholder="Message (Optional)" rows="4" class="w-full bg-pale border border-light_gray p-4 rounded-lg focus:border-accent outline-none"></textarea>
+                    <div class="text-center">
+                        <button type="submit" class="bg-accent text-white px-12 py-5 rounded-xl font-bold text-lg hover:bg-secondary transition-all shadow-xl shadow-accent/20">Request Booking</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Video Section moved above Reservation -->
+
+    <!-- Testimonials -->
+    <section class="py-24">
+        <div class="max-w-[1590px] mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-accent uppercase tracking-[3px] text-sm font-semibold font-body">Testimonials</span>
+                <h2 class="text-4xl md:text-[70px] text-primary mt-4">What Our Guests are Saying.</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-10 rounded-[20px] border-b-2 border-accent shadow-[0px_9px_56px_0px_rgba(0,0,0,0.03)_inset] relative group">
+                    <div class="absolute top-8 right-10 text-accent opacity-20 text-5xl">
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    <p class="text-primary italic leading-loose mb-10">“From the moment we walked in, everything felt thoughtfully curated. The ambiance, the service, and especially the food were all top-tier.”</p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://designingmedia.com/tasteline/wp-content/uploads/2025/11/testimonial-img-1.jpg" class="w-14 h-14 rounded-full" alt="Jessica">
+                        <div>
+                            <h6 class="text-primary font-bold text-lg">Jessica Lee</h6>
+                            <span class="text-xs text-t_gray">Happy Customer</span>
+                            <div class="text-[#FFC045] text-[10px] mt-1">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-10 rounded-[20px] border-b-2 border-accent shadow-[0px_9px_56px_0px_rgba(0,0,0,0.03)_inset] relative group">
+                    <div class="absolute top-8 right-10 text-accent opacity-20 text-5xl">
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    <p class="text-primary italic leading-loose mb-10">“I’ve had my fair share of espresso martinis, but nothing comes close to the one here. Perfectly balanced — velvety espresso.”</p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://designingmedia.com/tasteline/wp-content/uploads/2025/11/testimonial-img-2.jpg" class="w-14 h-14 rounded-full" alt="Mark">
+                        <div>
+                            <h6 class="text-primary font-bold text-lg">Mark Stevens</h6>
+                            <span class="text-xs text-t_gray">Happy Customer</span>
+                            <div class="text-[#FFC045] text-[10px] mt-1">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-10 rounded-[20px] border-b-2 border-accent shadow-[0px_9px_56px_0px_rgba(0,0,0,0.03)_inset] relative group">
+                    <div class="absolute top-8 right-10 text-accent opacity-20 text-5xl">
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    <p class="text-primary italic leading-loose mb-10">“From the warm greeting at the door to the attentive service throughout our meal, every detail made us feel truly welcomed.”</p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://designingmedia.com/tasteline/wp-content/uploads/2025/11/testimonial-img-3.jpg" class="w-14 h-14 rounded-full" alt="Anita">
+                        <div>
+                            <h6 class="text-primary font-bold text-lg">Anita Ramirez</h6>
+                            <span class="text-xs text-t_gray">Happy Customer</span>
+                            <div class="text-[#FFC045] text-[10px] mt-1">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+  
+
+    <!-- Social Feed (Expanded Asymmetrical Grid) -->
+    <section class="py-24 relative overflow-hidden">
+        <div class="absolute top-10 left-10 w-24 h-24 bg-secondary rounded-full -ml-12 -mt-12 z-0"></div>
+        <div class="max-w-[1590px] mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <span class="text-accent uppercase tracking-[3px] text-sm font-semibold font-body">Social Feed</span>
+                <h2 class="text-4xl md:text-[70px] text-primary mt-4 mb-6">See What’s Cooking.</h2>
+                <p class="max-w-2xl mx-auto">Every dish and every moment tells a story. Explore Too Mikkii Tapas through real guest moments and cafe vibes.</p>
+            </div>
+            
+            <div class="grid grid-cols-2 lg:grid-cols-6 gap-4 auto-rows-[150px] mb-12">
+                <a href="#" class="social-box group col-span-2 lg:col-span-2 row-span-2 relative rounded-[20px] overflow-hidden cursor-pointer reveal opacity-0 translate-y-8 transition-all duration-700">
+                    <img src="./public/img1.webp" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Social 1">
+                    <div class="social-overlay absolute inset-0 bg-black/45 opacity-0 transition-opacity flex items-end p-4"><i class="fab fa-instagram text-white text-xl"></i></div>
+                </a>
+                <a href="#" class="social-box group col-span-1 lg:col-span-1 row-span-1 relative rounded-[20px] overflow-hidden cursor-pointer reveal opacity-0 translate-y-8 transition-all duration-700">
+                    <img src="./public/img2.webp" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Social 2">
+                    <div class="social-overlay absolute inset-0 bg-black/45 opacity-0 transition-opacity flex items-center justify-center"><i class="fab fa-instagram text-white"></i></div>
+                </a>
+                <a href="#" class="social-box group col-span-1 lg:col-span-2 row-span-1 relative rounded-[20px] overflow-hidden cursor-pointer reveal opacity-0 translate-y-8 transition-all duration-700">
+                    <img src="./public/img8.webp" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Social 3">
+                    <div class="social-overlay absolute inset-0 bg-black/45 opacity-0 transition-opacity flex items-center justify-center"><i class="fab fa-instagram text-white"></i></div>
+                </a>
+                <a href="#" class="social-box group col-span-2 lg:col-span-1 row-span-2 relative rounded-[20px] overflow-hidden cursor-pointer reveal opacity-0 translate-y-8 transition-all duration-700">
+                    <img src="./public/img5.webp" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Social 4">
+                    <div class="social-overlay absolute inset-0 bg-black/45 opacity-0 transition-opacity flex items-center justify-center"><i class="fab fa-instagram text-white"></i></div>
+                </a>
+                <a href="#" class="social-box group col-span-1 lg:col-span-1 row-span-1 relative rounded-[20px] overflow-hidden cursor-pointer reveal opacity-0 translate-y-8 transition-all duration-700">
+                    <img src="./public/img6.webp" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Social 5">
+                    <div class="social-overlay absolute inset-0 bg-black/45 opacity-0 transition-opacity flex items-center justify-center"><i class="fab fa-instagram text-white"></i></div>
+                </a>
+                <a href="#" class="social-box group col-span-1 lg:col-span-2 row-span-1 relative rounded-[20px] overflow-hidden cursor-pointer reveal opacity-0 translate-y-8 transition-all duration-700">
+                    <img src="./public/img3.webp" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Social 6">
+                    <div class="social-overlay absolute inset-0 bg-black/45 opacity-0 transition-opacity flex items-center justify-center"><i class="fab fa-instagram text-white"></i></div>
+                </a>
+            </div>
+
+        
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="bg-accent py-24">
+        <div class="max-w-[1590px] mx-auto px-4 flex flex-col lg:flex-row items-center gap-12">
+            <div class="w-full lg:w-1/2">
+                <span class="text-white uppercase tracking-[3px] text-sm font-semibold">Newsletter Subscription</span>
+                <h2 class="text-white text-4xl md:text-6xl mt-2">Stay Connected.</h2>
+            </div>
+            <div class="w-full lg:w-1/2">
+                <p class="text-white/80 mb-6 text-lg">Be the first to hear about specials, seasonal menus, and exclusive events.</p>
+                <form class="flex flex-col sm:flex-row gap-4">
+                    <input type="email" placeholder="Enter Your Email Address:" class="flex-grow bg-white px-8 py-5 rounded-xl outline-none text-primary">
+                    <button class="bg-secondary text-white px-10 py-5 rounded-xl font-bold hover:bg-white hover:text-secondary transition-all whitespace-nowrap">Subscribe Now</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer class="bg-secondary pt-24 pb-8">
+        <div class="max-w-[1590px] mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+                <div class="lg:col-span-2">
+                    <h3 class="text-white text-4xl mb-4">Too Mikkii Tapas</h3>
+                    <p class="text-accent text-xs uppercase tracking-[2px] mb-8">Tree-Lined Outdoor Cafe</p>
+                    <p class="text-t_gray text-sm leading-relaxed max-w-sm">Every dish is crafted with passion and the freshest ingredients. Join us for a warm, flavorful experience inspired by tradition and made with love.</p>
+                </div>
+                <div>
+                    <h5 class="text-white text-xl mb-8">Useful Links</h5>
+                    <ul class="space-y-4 text-t_gray text-sm">
+                        <li><a href="#" class="hover:text-accent transition-colors"><i class="fas fa-angle-right text-accent mr-2"></i> Menu</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors"><i class="fas fa-angle-right text-accent mr-2"></i> Reservations</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors"><i class="fas fa-angle-right text-accent mr-2"></i> About Us</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors"><i class="fas fa-angle-right text-accent mr-2"></i> Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white text-xl mb-8">Contact Info</h5>
+                    <ul class="space-y-4 text-t_gray text-sm">
+                        <li class="flex items-start gap-3"><i class="fas fa-phone text-white mt-1"></i> 096545 25880</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-globe text-white mt-1"></i> Reservations: swiggy.com</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-map-marker-alt text-white mt-1"></i> Alexander M Kadakin Marg, Akhaura Block, Bapu Dham, Chanakyapuri, New Delhi</li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white text-xl mb-8">Follow Us</h5>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-accent hover:border-accent transition-all"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-accent hover:border-accent transition-all"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-accent hover:border-accent transition-all"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                    <div class="mt-8">
+                        <h5 class="text-white text-sm uppercase tracking-wider mb-4">Open Hours</h5>
+                        <p class="text-t_gray text-xs">Daily: <span class="text-white">Open - Closes 11:30 pm</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-center items-center text-t_gray text-xs gap-4">
+                <p>© 2026 Too Mikkii Tapas. All Rights Reserved.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="text-accent underline">Privacy Policy</a>
+                    <a href="#" class="text-accent underline">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Side Drawer Menu (Mobile & Sidebar) -->
+    <div id="drawer" class="fixed inset-0 z-[100] translate-x-full drawer-transition">
+        <div id="drawerOverlay" class="absolute inset-0 bg-black/60"></div>
+        <div class="absolute top-0 right-0 w-[350px] h-full bg-white shadow-2xl p-10 overflow-y-auto">
+            <div class="flex justify-between items-center mb-10">
+                <h3 class="text-primary text-3xl">Too Mikkii Tapas</h3>
+                <button id="closeDrawer" class="border border-light_gray p-2 px-3 rounded-lg hover:border-accent group transition-all">
+                    <img src="https://designingmedia.com/tasteline/wp-content/uploads/2025/11/cross-icon-drawer.png" class="w-4" alt="close">
+                </button>
+            </div>
+            <p class="text-sm mb-10">Every dish is crafted with passion and the freshest ingredients. Join us for a warm, flavorful experience inspired by tradition and made with love.</p>
+
+            <div class="mb-10">
+                <h3 class="text-primary text-2xl mb-6">Navigation</h3>
+                <ul class="space-y-3 text-t_gray">
+                    <li><a href="index.html" class="hover:text-accent transition-colors"><i class="fas fa-angle-right text-accent mr-2"></i>Home</a></li>
+                    <li><a href="about.html" class="hover:text-accent transition-colors"><i class="fas fa-angle-right text-accent mr-2"></i>About Us</a></li>
+                    <li><a href="menu.html" class="hover:text-accent transition-colors"><i class="fas fa-angle-right text-accent mr-2"></i>Menu</a></li>
+                    <li><a href="reservation.html" class="hover:text-accent transition-colors"><i class="fas fa-angle-right text-accent mr-2"></i>Reservation</a></li>
+                    <li><a href="index.html#gallery" class="hover:text-accent transition-colors"><i class="fas fa-angle-right text-accent mr-2"></i>Gallery</a></li>
+                    <li><a href="contact.html" class="hover:text-accent transition-colors"><i class="fas fa-angle-right text-accent mr-2"></i>Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="mb-10">
+                <h3 class="text-primary text-2xl mb-6">Contact Info</h3>
+                <ul class="space-y-4 text-t_gray">
+                    <li class="flex items-center gap-3"><i class="fas fa-phone text-accent"></i> 096545 25880</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-globe text-accent"></i> Reservations: swiggy.com</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-map-marker-alt text-accent"></i> Chanakyapuri, New Delhi</li>
+                </ul>
+            </div>
+
+            <div class="mb-10">
+                <h3 class="text-primary text-2xl mb-6">Open Hours</h3>
+                <ul class="space-y-2 text-sm">
+                    <li>Daily: <span class="text-accent">Open - Closes 11:30 pm</span></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-primary text-2xl mb-6">Gallery</h3>
+                <div class="grid grid-cols-3 gap-2">
+                    <img src="./public/img1.webp" class="rounded-lg w-full h-20 object-cover" alt="G1">
+                    <img src="./public/img2.webp" class="rounded-lg w-full h-20 object-cover" alt="G2">
+                    <img src="./public/img3.webp" class="rounded-lg w-full h-20 object-cover" alt="G3">
+                    <img src="./public/img4.webp" class="rounded-lg w-full h-20 object-cover" alt="G4">
+                    <img src="./public/img5.webp" class="rounded-lg w-full h-20 object-cover" alt="G5">
+                    <img src="./public/img6.webp" class="rounded-lg w-full h-20 object-cover" alt="G6">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Quick Contact -->
+    <a href="https://wa.me/919654525880" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp"
+    class="fixed bottom-6 right-6 z-[80] w-12 h-12 rounded-xl bg-[#25D366] text-white flex items-center justify-center shadow-xl hover:scale-105 transition-all">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="fixed inset-0 z-[120] hidden">
+        <div class="absolute inset-0 bg-black/80" id="videoModalOverlay"></div>
+        <div class="relative z-10 max-w-4xl mx-auto px-4 h-full flex items-center justify-center">
+            <div class="w-full bg-black rounded-2xl overflow-hidden shadow-2xl">
+                <div class="flex justify-end p-3 bg-secondary">
+                    <button id="closeVideoModal" class="text-white hover:text-accent text-xl"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="aspect-video">
+                    <iframe id="videoFrame" class="w-full h-full" src="" title="Cafe ambience video" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Drawer Logic
+        const drawer = document.getElementById('drawer');
+        const openBtn = document.getElementById('openDrawer');
+        const closeBtn = document.getElementById('closeDrawer');
+        const overlay = document.getElementById('drawerOverlay');
+
+        openBtn.addEventListener('click', () => drawer.classList.remove('translate-x-full'));
+        closeBtn.addEventListener('click', () => drawer.classList.add('translate-x-full'));
+        overlay.addEventListener('click', () => drawer.classList.add('translate-x-full'));
+
+        // Mobile Menu Button simulation
+        document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+            drawer.classList.remove('translate-x-full');
+        });
+
+        // Fade-in on scroll.
+        const revealItems = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.remove('opacity-0', 'translate-y-8');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        revealItems.forEach((item) => revealObserver.observe(item));
+
+        // Menu category tabs.
+        const tabButtons = document.querySelectorAll('.menu-tab-btn');
+        const tabPanels = document.querySelectorAll('.menu-tab-panel');
+        tabButtons.forEach((button) => {
+            button.addEventListener('click', () => {
+                const activeTab = button.dataset.tab;
+                tabButtons.forEach((btn) => {
+                    btn.classList.remove('bg-accent', 'text-white');
+                    btn.classList.add('bg-white', 'text-primary', 'border', 'border-light_gray');
+                });
+                button.classList.add('bg-accent', 'text-white');
+                button.classList.remove('bg-white', 'text-primary', 'border', 'border-light_gray');
+
+                tabPanels.forEach((panel) => panel.classList.add('hidden'));
+                document.getElementById('tab-' + activeTab).classList.remove('hidden');
+            });
+        });
+
+        // Video modal logic.
+        const openVideoModalBtn = document.getElementById('openVideoModal');
+        const closeVideoModalBtn = document.getElementById('closeVideoModal');
+        const videoModal = document.getElementById('videoModal');
+        const videoModalOverlay = document.getElementById('videoModalOverlay');
+        const videoFrame = document.getElementById('videoFrame');
+
+        if (openVideoModalBtn && closeVideoModalBtn && videoModal && videoModalOverlay && videoFrame) {
+            openVideoModalBtn.addEventListener('click', () => {
+                videoFrame.src = 'https://www.youtube.com/embed/ScMzIvxBSi4?autoplay=1&rel=0';
+                videoModal.classList.remove('hidden');
+                document.body.classList.add('overflow-hidden');
+            });
+
+            const closeVideo = () => {
+                videoModal.classList.add('hidden');
+                videoFrame.src = '';
+                document.body.classList.remove('overflow-hidden');
+            };
+
+            closeVideoModalBtn.addEventListener('click', closeVideo);
+            videoModalOverlay.addEventListener('click', closeVideo);
+        }
+
+        // Subtle parallax movement.
+        const parallaxImages = document.querySelectorAll('[data-parallax]');
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            parallaxImages.forEach((img) => {
+                img.style.transform = 'translateY(' + (scrollY * 0.06) + 'px)';
+            });
+        });
+
+        // Signature slider auto-move animation.
+        const signatureSlider = document.getElementById('signatureSlider');
+        if (signatureSlider) {
+            let isPaused = false;
+            let rafId;
+            const speed = 0.35;
+
+            const animateSlider = () => {
+                if (!isPaused) {
+                    signatureSlider.scrollLeft += speed;
+                    if (signatureSlider.scrollLeft >= signatureSlider.scrollWidth - signatureSlider.clientWidth) {
+                        signatureSlider.scrollLeft = 0;
+                    }
+                }
+                rafId = requestAnimationFrame(animateSlider);
+            };
+
+            signatureSlider.addEventListener('mouseenter', () => { isPaused = true; });
+            signatureSlider.addEventListener('mouseleave', () => { isPaused = false; });
+            signatureSlider.addEventListener('touchstart', () => { isPaused = true; }, { passive: true });
+            signatureSlider.addEventListener('touchend', () => { isPaused = false; });
+
+            animateSlider();
+            window.addEventListener('beforeunload', () => cancelAnimationFrame(rafId));
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu | Too Mikkii Tapas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#000000',
+                        secondary: '#221f1f',
+                        accent: '#cf3247',
+                        t_gray: '#6a6a6a',
+                        pale: '#fff8f9',
+                        light_gray: '#DADADA'
+                    },
+                    fontFamily: {
+                        heading: ['Philosopher', 'sans-serif'],
+                        body: ['Inter Tight', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter Tight', sans-serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Philosopher', sans-serif; }
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .social-box:hover .social-overlay { opacity: 1; }
+        .drawer-transition { transition: transform 0.3s ease-in-out; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-white text-t_gray overflow-x-hidden">
+
+    <!-- Mobile Quick Bar -->
+    <div class="lg:hidden bg-[#FFF8F9] border-t-2 border-accent py-2.5">
+        <div class="max-w-[1590px] mx-auto px-4 flex items-center justify-between text-[11px] font-semibold text-primary">
+            <a href="tel:+919654525880" class="flex items-center gap-1.5"><i class="fas fa-phone text-accent"></i> +91 96545 25880</a>
+            <a href="https://wa.me/919654525880" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5"><i class="fab fa-whatsapp text-accent"></i> WhatsApp Order</a>
+        </div>
+    </div>
+
+    <!-- Top Info Bar -->
+    <div class="hidden lg:block bg-[#FFF8F9] border-t-2 border-accent py-4">
+        <div class="max-w-[1590px] mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center space-x-8">
+                <a href="tel:+919654525880" class="flex items-center text-primary text-sm font-semibold">
+                    <i class="fas fa-headphones text-accent mr-2"></i> +91 96545 25880
+                </a>
+                <div class="flex items-center text-primary text-sm font-semibold">
+                    <i class="fas fa-map-marker-alt text-accent mr-2"></i> Alexander M Kadakin Marg, Chanakyapuri, New Delhi 110021
+                </div>
+            </div>
+            <div class="flex items-center space-x-6">
+                <a href="#" class="w-9 h-9 rounded-full border border-light_gray text-primary flex items-center justify-center hover:bg-accent hover:border-accent hover:text-white transition-all" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="w-9 h-9 rounded-full border border-light_gray text-primary flex items-center justify-center hover:bg-accent hover:border-accent hover:text-white transition-all" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/919654525880" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full border border-light_gray text-primary flex items-center justify-center hover:bg-accent hover:border-accent hover:text-white transition-all" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <button id="openDrawer" class="bg-[#F8F8F8] border border-light_gray p-2 rounded-lg hover:border-accent transition-all">
+                    <img src="https://designingmedia.com/tasteline/wp-content/uploads/2025/11/hamburger-icon.png" class="w-6" alt="menu">
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-light_gray lg:border-none">
+        <div class="max-w-[1590px] mx-auto px-4 py-6 flex justify-between items-center">
+            <a href="index.html" class="block">
+                <h2 class="text-primary text-4xl leading-none">Too Mikkii Tapas</h2>
+                <p class="text-xs uppercase tracking-[2px] text-t_gray mt-1">Chanakyapuri, New Delhi</p>
+            </a>
+
+            <nav class="hidden lg:flex items-center space-x-8 text-primary font-bold">
+                <a href="index.html" class="hover:text-accent">Home</a>
+                <a href="about.html" class="hover:text-accent">About Us</a>
+                <a href="menu.html" class="hover:text-accent">Menu</a>
+                <a href="reservation.html" class="hover:text-accent">Reservation</a>
+                <a href="index.html#gallery" class="hover:text-accent">Gallery</a>
+                <a href="contact.html" class="hover:text-accent">Contact</a>
+            </nav>
+
+            <div class="hidden xl:flex items-center space-x-4">
+                <a href="#" class="flex flex-col items-center border border-accent/10 rounded-xl px-6 py-2 shadow-lg hover:bg-accent group transition-all">
+                    <span class="flex items-center text-accent font-bold group-hover:text-white transition-colors">
+                        <i class="fas fa-chair mr-2"></i> Reserve a Table <i class="fas fa-angle-right ml-2"></i>
+                    </span>
+                    <span class="text-[10px] text-t_gray group-hover:text-white/80">Instant confirmation</span>
+                </a>
+                <a href="https://wa.me/919654525880" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center bg-accent rounded-xl px-6 py-2 shadow-lg hover:bg-secondary group transition-all">
+                    <span class="flex items-center text-white font-bold transition-colors">
+                        <i class="fab fa-whatsapp mr-2"></i> Order via WhatsApp <i class="fas fa-angle-right ml-2"></i>
+                    </span>
+                    <span class="text-[10px] text-white/80">Fast direct ordering</span>
+                </a>
+            </div>
+
+            <button class="lg:hidden text-primary text-2xl" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="relative overflow-hidden bg-secondary">
+            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1800&q=80')] bg-cover bg-center opacity-35"></div>
+            <div class="absolute inset-0 bg-gradient-to-br from-secondary/90 via-secondary/75 to-primary/90"></div>
+            <div class="max-w-[1590px] mx-auto px-4 py-24 md:py-32 relative z-10">
+                <span class="text-accent uppercase tracking-[3px] text-sm font-semibold font-body">Curated Menu</span>
+                <h1 class="text-white text-5xl md:text-7xl lg:text-[96px] leading-[1.05] mt-4 mb-8">A menu built for craving and conversation.</h1>
+                <p class="text-white/85 text-lg md:text-2xl max-w-3xl">From crisp starters to signature mains, each dish is composed with ingredient integrity, visual finesse, and bold flavor clarity.</p>
+            </div>
+        </section>
+
+        <section class="py-20 bg-pale border-y border-light_gray/70">
+            <div class="max-w-[1590px] mx-auto px-4 grid grid-cols-1 xl:grid-cols-12 gap-8 items-start">
+                <aside class="xl:col-span-3 xl:sticky xl:top-[122px] space-y-6">
+                    <div class="bg-white border border-light_gray/70 rounded-[28px] p-6 shadow-sm">
+                        <p class="text-xs uppercase tracking-[3px] text-accent font-semibold mb-4">Categories</p>
+                        <div class="grid grid-cols-2 gap-3" id="categoryTabs">
+                            <button data-tab="starters" class="menu-tab-btn bg-accent text-white px-4 py-3 rounded-2xl font-bold text-sm transition-all duration-500 shadow-lg shadow-accent/20">Starters</button>
+                            <button data-tab="main" class="menu-tab-btn bg-white text-primary border border-light_gray px-4 py-3 rounded-2xl font-bold text-sm transition-all duration-500 hover:border-accent hover:text-accent">Main</button>
+                            <button data-tab="drinks" class="menu-tab-btn bg-white text-primary border border-light_gray px-4 py-3 rounded-2xl font-bold text-sm transition-all duration-500 hover:border-accent hover:text-accent">Drinks</button>
+                            <button data-tab="desserts" class="menu-tab-btn bg-white text-primary border border-light_gray px-4 py-3 rounded-2xl font-bold text-sm transition-all duration-500 hover:border-accent hover:text-accent">Desserts</button>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border border-light_gray/70 rounded-[28px] p-6 shadow-sm space-y-5">
+                        <div class="bg-pale border border-light_gray/60 rounded-2xl px-4 py-3 flex items-center gap-3">
+                            <i class="fas fa-search text-accent"></i>
+                            <input id="menuSearch" type="text" placeholder="Search dishes" class="w-full bg-transparent outline-none text-primary placeholder:text-t_gray/70">
+                        </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <button class="diet-filter-btn bg-accent text-white px-4 py-3 rounded-2xl text-sm font-bold" data-filter="all">All</button>
+                            <button class="diet-filter-btn bg-white border border-light_gray text-primary px-4 py-3 rounded-2xl text-sm font-bold" data-filter="veg">Veg</button>
+                            <button class="diet-filter-btn bg-white border border-light_gray text-primary px-4 py-3 rounded-2xl text-sm font-bold" data-filter="non-veg">Non-Veg</button>
+                            <button class="diet-filter-btn bg-white border border-light_gray text-primary px-4 py-3 rounded-2xl text-sm font-bold" data-filter="vegan">Vegan</button>
+                        </div>
+                        <div class="bg-pale border border-light_gray/60 rounded-2xl px-4 py-3">
+                            <label for="menuSort" class="sr-only">Sort menu</label>
+                            <select id="menuSort" class="w-full bg-transparent outline-none text-primary font-semibold">
+                                <option value="featured">Sort: Featured</option>
+                                <option value="price-low">Sort: Price Low to High</option>
+                                <option value="price-high">Sort: Price High to Low</option>
+                                <option value="rating">Sort: Highest Rated</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="bg-secondary rounded-[28px] p-6 text-white shadow-xl">
+                        <p class="text-accent uppercase tracking-[2px] text-xs mb-3">Quick Order</p>
+                        <h3 class="text-3xl mb-4">Order via WhatsApp</h3>
+                        <p class="text-white/80 mb-5 text-sm">Pick your dish and place your order instantly on WhatsApp.</p>
+                        <a href="https://wa.me/919654525880?text=Hi%20Too%20Mikkii%20Tapas%2C%20I%20want%20to%20place%20an%20order." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full bg-[#25D366] text-white py-3 rounded-2xl font-bold hover:brightness-105 transition-all">
+                            <i class="fab fa-whatsapp mr-2"></i> Start WhatsApp Order
+                        </a>
+                    </div>
+                </aside>
+
+                <div class="xl:col-span-9">
+                    <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
+                        <div>
+                            <span class="text-accent uppercase tracking-[3px] text-sm font-semibold font-body">Menu Collection</span>
+                            <h2 class="text-4xl md:text-6xl text-primary mt-2">Crafted Plates, Ready to Order.</h2>
+                        </div>
+                        <p class="text-sm md:text-base">Select filters on the left to refine your picks.</p>
+                    </div>
+
+                    <div id="menuGrid" class="grid grid-cols-1 md:grid-cols-2 gap-8 transition-all duration-700 [grid-auto-rows:1fr]"></div>
+                    <div id="emptyState" class="hidden text-center py-16">
+                        <h3 class="text-4xl text-primary mb-4">No dishes match your filters.</h3>
+                        <p class="text-lg">Try another category, keyword, or dietary selection.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-secondary pt-24 pb-8">
+        <div class="max-w-[1590px] mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+                <div class="lg:col-span-2">
+                    <h3 class="text-white text-4xl mb-4">Too Mikkii Tapas</h3>
+                    <p class="text-accent text-xs uppercase tracking-[2px] mb-8">Tree-Lined Outdoor Cafe</p>
+                    <p class="text-t_gray text-sm leading-relaxed max-w-sm">Every dish is crafted with passion and the freshest ingredients. Join us for a warm, flavorful experience inspired by tradition and made with love.</p>
+                </div>
+                <div>
+                    <h5 class="text-white text-xl mb-8">Useful Links</h5>
+                    <ul class="space-y-4 text-t_gray text-sm">
+                        <li><a href="#" class="hover:text-accent transition-colors"><i class="fas fa-angle-right text-accent mr-2"></i> Menu</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors"><i class="fas fa-angle-right text-accent mr-2"></i> Reservations</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors"><i class="fas fa-angle-right text-accent mr-2"></i> About Us</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors"><i class="fas fa-angle-right text-accent mr-2"></i> Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white text-xl mb-8">Contact Info</h5>
+                    <ul class="space-y-4 text-t_gray text-sm">
+                        <li class="flex items-start gap-3"><i class="fas fa-phone text-white mt-1"></i> 096545 25880</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-globe text-white mt-1"></i> Reservations: swiggy.com</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-map-marker-alt text-white mt-1"></i> Alexander M Kadakin Marg, Akhaura Block, Bapu Dham, Chanakyapuri, New Delhi</li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white text-xl mb-8">Follow Us</h5>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-accent hover:border-accent transition-all"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-accent hover:border-accent transition-all"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-accent hover:border-accent transition-all"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                    <div class="mt-8">
+                        <h5 class="text-white text-sm uppercase tracking-wider mb-4">Open Hours</h5>
+                        <p class="text-t_gray text-xs">Daily: <span class="text-white">Open - Closes 11:30 pm</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-center items-center text-t_gray text-xs gap-4">
+                <p>© 2026 Too Mikkii Tapas. All Rights Reserved.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="text-accent underline">Privacy Policy</a>
+                    <a href="#" class="text-accent underline">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Side Drawer Menu (Mobile & Sidebar) -->
+    <div id="drawer" class="fixed inset-0 z-[100] translate-x-full drawer-transition">
+        <div id="drawerOverlay" class="absolute inset-0 bg-black/60"></div>
+        <div class="absolute top-0 right-0 w-[350px] h-full bg-white shadow-2xl p-10 overflow-y-auto">
+            <div class="flex justify-between items-center mb-10">
+                <h3 class="text-primary text-3xl">Too Mikkii Tapas</h3>
+                <button id="closeDrawer" class="border border-light_gray p-2 px-3 rounded-lg hover:border-accent group transition-all">
+                    <img src="https://designingmedia.com/tasteline/wp-content/uploads/2025/11/cross-icon-drawer.png" class="w-4" alt="close">
+                </button>
+            </div>
+            <p class="text-sm mb-10">Every dish is crafted with passion and the freshest ingredients. Join us for a warm, flavorful experience inspired by tradition and made with love.</p>
+
+            <div class="mb-10">
+                <h3 class="text-primary text-2xl mb-6">Navigation</h3>
+                <ul class="space-y-3 text-t_gray">
+                    <li><a href="index.html" class="hover:text-accent transition-colors"><i class="fas fa-angle-right text-accent mr-2"></i>Home</a></li>
+                    <li><a href="about.html" class="hover:text-accent transition-colors"><i class="fas fa-angle-right text-accent mr-2"></i>About Us</a></li>
+                    <li><a href="menu.html" class="hover:text-accent transition-colors"><i class="fas fa-angle-right text-accent mr-2"></i>Menu</a></li>
+                    <li><a href="reservation.html" class="hover:text-accent transition-colors"><i class="fas fa-angle-right text-accent mr-2"></i>Reservation</a></li>
+                    <li><a href="index.html#gallery" class="hover:text-accent transition-colors"><i class="fas fa-angle-right text-accent mr-2"></i>Gallery</a></li>
+                    <li><a href="contact.html" class="hover:text-accent transition-colors"><i class="fas fa-angle-right text-accent mr-2"></i>Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="mb-10">
+                <h3 class="text-primary text-2xl mb-6">Contact Info</h3>
+                <ul class="space-y-4 text-t_gray">
+                    <li class="flex items-center gap-3"><i class="fas fa-phone text-accent"></i> 096545 25880</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-globe text-accent"></i> Reservations: swiggy.com</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-map-marker-alt text-accent"></i> Chanakyapuri, New Delhi</li>
+                </ul>
+            </div>
+
+            <div class="mb-10">
+                <h3 class="text-primary text-2xl mb-6">Open Hours</h3>
+                <ul class="space-y-2 text-sm">
+                    <li>Daily: <span class="text-accent">Open - Closes 11:30 pm</span></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-primary text-2xl mb-6">Gallery</h3>
+                <div class="grid grid-cols-3 gap-2">
+                    <img src="./public/img1.webp" class="rounded-lg w-full h-20 object-cover" alt="G1">
+                    <img src="./public/img2.webp" class="rounded-lg w-full h-20 object-cover" alt="G2">
+                    <img src="./public/img3.webp" class="rounded-lg w-full h-20 object-cover" alt="G3">
+                    <img src="./public/img4.webp" class="rounded-lg w-full h-20 object-cover" alt="G4">
+                    <img src="./public/img5.webp" class="rounded-lg w-full h-20 object-cover" alt="G5">
+                    <img src="./public/img6.webp" class="rounded-lg w-full h-20 object-cover" alt="G6">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Quick Contact -->
+    <a href="https://wa.me/919654525880" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp"
+    class="fixed bottom-6 right-6 z-[80] w-12 h-12 rounded-xl bg-[#25D366] text-white flex items-center justify-center shadow-xl hover:scale-105 transition-all">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+
+    <script>
+        const drawer = document.getElementById('drawer');
+        const openBtn = document.getElementById('openDrawer');
+        const closeBtn = document.getElementById('closeDrawer');
+        const overlay = document.getElementById('drawerOverlay');
+
+        openBtn.addEventListener('click', () => drawer.classList.remove('translate-x-full'));
+        closeBtn.addEventListener('click', () => drawer.classList.add('translate-x-full'));
+        overlay.addEventListener('click', () => drawer.classList.add('translate-x-full'));
+
+        document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+            drawer.classList.remove('translate-x-full');
+        });
+
+        const menuItems = [
+            { name: 'Burrata Citrus Garden', desc: 'Creamy burrata, orange segments, basil oil, toasted seeds.', price: 14, rating: 4.9, image: 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=1100&q=80', category: 'starters', diet: 'veg', special: true },
+            { name: 'Charred Pepper Bruschetta', desc: 'Sourdough, slow-roasted peppers, whipped feta, herb dust.', price: 11, rating: 4.8, image: 'https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=1100&q=80', category: 'starters', diet: 'veg', special: false },
+            { name: 'Smoked Chicken Pinchos', desc: 'Skewered chicken, paprika glaze, lemon aioli.', price: 13, rating: 4.7, image: 'https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=1100&q=80', category: 'starters', diet: 'non-veg', special: false },
+            { name: 'Zucchini Herb Carpaccio', desc: 'Paper-thin zucchini, pistachio crumble, lemon-olive dressing.', price: 12, rating: 4.6, image: 'https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1100&q=80', category: 'starters', diet: 'vegan', special: false },
+
+            { name: 'Truffle Mushroom Risotto', desc: 'Arborio rice, wild mushrooms, truffle reduction, parmesan.', price: 21, rating: 5.0, image: 'https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1100&q=80', category: 'main', diet: 'veg', special: true },
+            { name: 'Mediterranean Sea Bass', desc: 'Pan-seared fillet, lemon caper butter, charred greens.', price: 24, rating: 4.9, image: 'https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=1100&q=80', category: 'main', diet: 'non-veg', special: false },
+            { name: 'Harissa Lamb Tender', desc: 'Slow-braised lamb, saffron couscous, roasted shallots.', price: 26, rating: 4.8, image: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1100&q=80', category: 'main', diet: 'non-veg', special: false },
+            { name: 'Garden Mezze Bowl', desc: 'Falafel, hummus, grilled vegetables, tahini drizzle.', price: 18, rating: 4.7, image: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1100&q=80', category: 'main', diet: 'vegan', special: false },
+
+            { name: 'Rose Espresso Martini', desc: 'Cold brew espresso, rose syrup, silky foam finish.', price: 10, rating: 4.9, image: 'https://images.unsplash.com/photo-1514361892635-cebb7dbf2a1d?auto=format&fit=crop&w=1100&q=80', category: 'drinks', diet: 'veg', special: true },
+            { name: 'Smoked Citrus Spritz', desc: 'Grapefruit tonic, house bitters, orange smoke.', price: 9, rating: 4.8, image: 'https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=1100&q=80', category: 'drinks', diet: 'vegan', special: false },
+            { name: 'Minted Yogurt Cooler', desc: 'Hung-curd blend, fresh mint, toasted cumin.', price: 8, rating: 4.6, image: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=1100&q=80', category: 'drinks', diet: 'veg', special: false },
+            { name: 'Barrel Aged Old Fashioned', desc: 'House barrel-aged bourbon, orange zest, aromatic bitters.', price: 12, rating: 4.8, image: 'https://images.unsplash.com/photo-1575023782549-62ca0d244b39?auto=format&fit=crop&w=1100&q=80', category: 'drinks', diet: 'vegan', special: false },
+
+            { name: 'Burnt Vanilla Cheesecake', desc: 'Caramelized crust, berry compote, sea salt crunch.', price: 11, rating: 5.0, image: 'https://images.unsplash.com/photo-1464306076886-da185f6a9d05?auto=format&fit=crop&w=1100&q=80', category: 'desserts', diet: 'veg', special: true },
+            { name: 'Dark Chocolate Torte', desc: 'Single-origin cocoa, hazelnut praline, creme fraiche.', price: 10, rating: 4.8, image: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476e?auto=format&fit=crop&w=1100&q=80', category: 'desserts', diet: 'veg', special: false },
+            { name: 'Coconut Mango Pavlova', desc: 'Crisp shell, tropical cream, alphonso ribbons.', price: 9, rating: 4.7, image: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=1100&q=80', category: 'desserts', diet: 'veg', special: false },
+            { name: 'Strawberry Basil Sorbet', desc: 'Dairy-free sorbet with basil syrup and candied zest.', price: 8, rating: 4.6, image: 'https://images.unsplash.com/photo-1528825871115-3581a5387919?auto=format&fit=crop&w=1100&q=80', category: 'desserts', diet: 'vegan', special: false }
+        ];
+
+        const menuGrid = document.getElementById('menuGrid');
+        const emptyState = document.getElementById('emptyState');
+        const tabButtons = document.querySelectorAll('.menu-tab-btn');
+        const filterButtons = document.querySelectorAll('.diet-filter-btn');
+        const searchInput = document.getElementById('menuSearch');
+        const sortSelect = document.getElementById('menuSort');
+
+        let activeCategory = 'starters';
+        let activeFilter = 'all';
+        let activeSearch = '';
+        let activeSort = 'featured';
+
+        const stars = (rating) => {
+            const full = Math.round(rating);
+            return '<div class="flex text-[#FFC045] text-xs gap-1">' + '<i class="fas fa-star"></i>'.repeat(full) + '</div>';
+        };
+
+        const cardTemplate = (item, index) => {
+            const specialClass = item.special ? 'ring-2 ring-accent/30 bg-gradient-to-b from-white to-pale' : 'bg-white';
+            const specialBadge = item.special ? '<span class="absolute top-5 left-5 bg-accent text-white text-[11px] uppercase tracking-[2px] px-3 py-1 rounded-full font-bold">Chef\'s Special</span>' : '';
+            const dietChip = item.diet === 'non-veg' ? 'Non-Veg' : item.diet.charAt(0).toUpperCase() + item.diet.slice(1);
+            const waText = encodeURIComponent('Hi Too Mikkii Tapas, I want to order ' + item.name + ' ($' + item.price + ').');
+
+            return `
+                <article class="menu-card h-full ${specialClass} border border-light_gray/60 rounded-[28px] overflow-hidden shadow-[0_18px_55px_rgba(0,0,0,0.08)] hover:shadow-[0_24px_70px_rgba(0,0,0,0.13)] hover:-translate-y-2 transition-all duration-500 group relative">
+                    ${specialBadge}
+                    <div class="h-full flex flex-col">
+                        <div class="overflow-hidden h-[280px]">
+                            <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        </div>
+                        <div class="p-7 md:p-8 flex flex-col flex-1 justify-between">
+                            <div>
+                                <div class="flex justify-between items-start gap-4 mb-4">
+                                    <div>
+                                        <h3 class="text-3xl text-primary leading-tight">${item.name}</h3>
+                                        <p class="text-xs uppercase tracking-[2px] text-accent font-semibold mt-2">${dietChip}</p>
+                                    </div>
+                                    <span class="text-4xl text-primary">$${item.price}</span>
+                                </div>
+                                <p class="text-base leading-relaxed mb-6">${item.desc}</p>
+                            </div>
+                            <div class="flex flex-wrap items-center justify-between gap-3">
+                                <div class="flex items-center gap-3">
+                                    ${stars(item.rating)}
+                                    <span class="text-sm text-primary font-bold">${item.rating.toFixed(1)} / 5</span>
+                                </div>
+                                <a href="https://wa.me/919654525880?text=${waText}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center bg-[#25D366] text-white text-xs font-bold px-4 py-2 rounded-xl hover:brightness-105 transition-all">
+                                    <i class="fab fa-whatsapp mr-2"></i> Order via WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            `;
+        };
+
+        function renderMenu() {
+            menuGrid.classList.add('opacity-0', 'translate-y-5');
+
+            setTimeout(() => {
+                let data = menuItems.filter((item) => item.category === activeCategory);
+
+                if (activeFilter !== 'all') {
+                    data = data.filter((item) => item.diet === activeFilter);
+                }
+
+                if (activeSearch.trim()) {
+                    const query = activeSearch.toLowerCase();
+                    data = data.filter((item) => {
+                        return item.name.toLowerCase().includes(query) || item.desc.toLowerCase().includes(query);
+                    });
+                }
+
+                if (activeSort === 'price-low') data.sort((a, b) => a.price - b.price);
+                if (activeSort === 'price-high') data.sort((a, b) => b.price - a.price);
+                if (activeSort === 'rating') data.sort((a, b) => b.rating - a.rating);
+                if (activeSort === 'featured') data.sort((a, b) => (b.special === a.special) ? 0 : b.special ? 1 : -1);
+
+                menuGrid.innerHTML = data.map((item, index) => cardTemplate(item, index)).join('');
+
+                if (!data.length) {
+                    emptyState.classList.remove('hidden');
+                } else {
+                    emptyState.classList.add('hidden');
+                }
+
+                menuGrid.classList.remove('opacity-0', 'translate-y-5');
+            }, 180);
+        }
+
+        tabButtons.forEach((button) => {
+            button.addEventListener('click', () => {
+                activeCategory = button.dataset.tab;
+                tabButtons.forEach((btn) => {
+                    btn.classList.remove('bg-accent', 'text-white', 'shadow-lg', 'shadow-accent/20');
+                    btn.classList.add('bg-white', 'text-primary', 'border', 'border-light_gray');
+                });
+                button.classList.add('bg-accent', 'text-white', 'shadow-lg', 'shadow-accent/20');
+                button.classList.remove('bg-white', 'text-primary', 'border', 'border-light_gray');
+                renderMenu();
+            });
+        });
+
+        filterButtons.forEach((button) => {
+            button.addEventListener('click', () => {
+                activeFilter = button.dataset.filter;
+                filterButtons.forEach((btn) => {
+                    btn.classList.remove('bg-accent', 'text-white');
+                    btn.classList.add('bg-white', 'text-primary', 'border', 'border-light_gray');
+                });
+                button.classList.add('bg-accent', 'text-white');
+                button.classList.remove('bg-white', 'text-primary', 'border', 'border-light_gray');
+                renderMenu();
+            });
+        });
+
+        searchInput.addEventListener('input', (event) => {
+            activeSearch = event.target.value;
+            renderMenu();
+        });
+
+        sortSelect.addEventListener('change', (event) => {
+            activeSort = event.target.value;
+            renderMenu();
+        });
+
+        renderMenu();
+    </script>
+</body>
+</html>

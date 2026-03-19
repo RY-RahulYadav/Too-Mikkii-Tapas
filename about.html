@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Too Mikkii Tapas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#000000',
+                        secondary: '#221f1f',
+                        accent: '#cf3247',
+                        t_gray: '#6a6a6a',
+                        pale: '#fff8f9',
+                        light_gray: '#DADADA'
+                    },
+                    fontFamily: {
+                        heading: ['Philosopher', 'sans-serif'],
+                        body: ['Inter Tight', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter Tight', sans-serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Philosopher', sans-serif; }
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .social-box:hover .social-overlay { opacity: 1; }
+        .drawer-transition { transition: transform 0.3s ease-in-out; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-white text-t_gray overflow-x-hidden">
+
+    <!-- Mobile Quick Bar -->
+    <div class="lg:hidden bg-[#FFF8F9] border-t-2 border-accent py-2.5">
+        <div class="max-w-[1590px] mx-auto px-4 flex items-center justify-between text-[11px] font-semibold text-primary">
+            <a href="tel:+919654525880" class="flex items-center gap-1.5"><i class="fas fa-phone text-accent"></i> +91 96545 25880</a>
+            <a href="https://wa.me/919654525880" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5"><i class="fab fa-whatsapp text-accent"></i> WhatsApp Order</a>
+        </div>
+    </div>
+
+    <!-- Top Info Bar -->
+    <div class="hidden lg:block bg-[#FFF8F9] border-t-2 border-accent py-4">
+        <div class="max-w-[1590px] mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center space-x-8">
+                <a href="tel:+919654525880" class="flex items-center text-primary text-sm font-semibold">
+                    <i class="fas fa-headphones text-accent mr-2"></i> +91 96545 25880
+                </a>
+                <div class="flex items-center text-primary text-sm font-semibold">
+                    <i class="fas fa-map-marker-alt text-accent mr-2"></i> Alexander M Kadakin Marg, Chanakyapuri, New Delhi 110021
+                </div>
+            </div>
+            <div class="flex items-center space-x-6">
+                <a href="#" class="w-9 h-9 rounded-full border border-light_gray text-primary flex items-center justify-center hover:bg-accent hover:border-accent hover:text-white transition-all" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="w-9 h-9 rounded-full border border-light_gray text-primary flex items-center justify-center hover:bg-accent hover:border-accent hover:text-white transition-all" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/919654525880" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full border border-light_gray text-primary flex items-center justify-center hover:bg-accent hover:border-accent hover:text-white transition-all" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <button id="openDrawer" class="bg-[#F8F8F8] border border-light_gray p-2 rounded-lg hover:border-accent transition-all">
+                    <img src="https://designingmedia.com/tasteline/wp-content/uploads/2025/11/hamburger-icon.png" class="w-6" alt="menu">
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-light_gray lg:border-none">
+        <div class="max-w-[1590px] mx-auto px-4 py-6 flex justify-between items-center">
+            <a href="index.html" class="block">
+                <h2 class="text-primary text-4xl leading-none">Too Mikkii Tapas</h2>
+                <p class="text-xs uppercase tracking-[2px] text-t_gray mt-1">Chanakyapuri, New Delhi</p>
+            </a>
+
+            <nav class="hidden lg:flex items-center space-x-8 text-primary font-bold">
+                <a href="index.html" class="hover:text-accent">Home</a>
+                <a href="about.html" class="hover:text-accent">About Us</a>
+                <a href="menu.html" class="hover:text-accent">Menu</a>
+                <a href="reservation.html" class="hover:text-accent">Reservation</a>
+                <a href="index.html#gallery" class="hover:text-accent">Gallery</a>
+                <a href="contact.html" class="hover:text-accent">Contact</a>
+            </nav>
+
+            <div class="hidden xl:flex items-center space-x-4">
+                <a href="#" class="flex flex-col items-center border border-accent/10 rounded-xl px-6 py-2 shadow-lg hover:bg-accent group transition-all">
+                    <span class="flex items-center text-accent font-bold group-hover:text-white transition-colors">
+                        <i class="fas fa-chair mr-2"></i> Reserve a Table <i class="fas fa-angle-right ml-2"></i>
+                    </span>
+                    <span class="text-[10px] text-t_gray group-hover:text-white/80">Instant confirmation</span>
+                </a>
+                <a href="https://wa.me/919654525880" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center bg-accent rounded-xl px-6 py-2 shadow-lg hover:bg-secondary group transition-all">
+                    <span class="flex items-center text-white font-bold transition-colors">
+                        <i class="fab fa-whatsapp mr-2"></i> Order via WhatsApp <i class="fas fa-angle-right ml-2"></i>
+                    </span>
+                    <span class="text-[10px] text-white/80">Fast direct ordering</span>
+                </a>
+            </div>
+
+            <button class="lg:hidden text-primary text-2xl" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="relative min-h-[75vh] flex items-end overflow-hidden">
+            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1800&q=80')] bg-cover bg-center" data-parallax></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-secondary/85 via-secondary/55 to-secondary/35"></div>
+            <div class="max-w-[1590px] mx-auto px-4 pt-28 pb-24 w-full relative z-10">
+                <span class="text-accent uppercase tracking-[3px] text-sm font-semibold font-body">About Too Mikkii Tapas</span>
+                <h1 class="text-white text-5xl md:text-7xl lg:text-[96px] leading-[1.05] mt-4 max-w-5xl">Rooted in warmth, elevated through craft.</h1>
+                <p class="text-white/85 text-lg md:text-2xl mt-8 max-w-2xl">What began as a tree-lined cafe has grown into a culinary destination where every table feels like a celebration.</p>
+            </div>
+        </section>
+
+        <section class="py-24 bg-white">
+            <div class="max-w-[1590px] mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="reveal opacity-0 translate-y-8 transition-all duration-700">
+                    <span class="text-accent uppercase tracking-[3px] text-sm font-semibold font-body">Our Story</span>
+                    <h2 class="text-4xl md:text-[70px] leading-[1.04] text-primary mt-4 mb-8">A neighborhood heartbeat with global inspiration.</h2>
+                    <p class="text-lg mb-6">Too Mikkii Tapas started with one idea: create a place where Delhi slows down. We wanted guests to linger a little longer, talk a little deeper, and eat a lot better.</p>
+                    <p class="text-lg mb-6">Today, our kitchen layers Mediterranean finesse, modern cafe comfort, and local freshness into every plate. The result is food that feels familiar and surprising at once.</p>
+                    <p class="text-lg">From morning espresso rituals to late-evening gatherings under the trees, our story is written by the people who return for the feeling as much as the flavor.</p>
+                </div>
+                <div class="relative reveal opacity-0 translate-y-8 transition-all duration-700">
+                    <div class="rounded-[36px] overflow-hidden shadow-2xl border border-light_gray/60">
+                        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1200&q=80" alt="Restaurant team in service" class="w-full h-[620px] object-cover">
+                    </div>
+                    <div class="absolute -bottom-10 right-6 bg-pale border border-light_gray/60 rounded-[24px] p-6 shadow-xl max-w-xs">
+                        <p class="text-primary text-lg font-semibold leading-snug">"Every menu is a love letter to seasonality, texture, and shared joy."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-pale overflow-hidden">
+            <div class="max-w-[1590px] mx-auto px-4 grid grid-cols-1 lg:grid-cols-5 gap-10 items-center">
+                <div class="lg:col-span-2 reveal opacity-0 translate-y-8 transition-all duration-700">
+                    <div class="rounded-[34px] overflow-hidden shadow-2xl border border-white">
+                        <img src="https://images.unsplash.com/photo-1583394293214-28ded15ee548?auto=format&fit=crop&w=1100&q=80" alt="Founder portrait" class="w-full h-[560px] object-cover">
+                    </div>
+                </div>
+                <div class="lg:col-span-3 reveal opacity-0 translate-y-8 transition-all duration-700">
+                    <span class="text-accent uppercase tracking-[3px] text-sm font-semibold font-body">Founder Note</span>
+                    <h2 class="text-4xl md:text-[64px] text-primary mt-4 mb-8 leading-[1.05]">Chef Aaryan Mehta</h2>
+                    <blockquote class="text-2xl md:text-3xl text-primary italic leading-relaxed mb-8">"Hospitality is the art of making someone feel remembered before they even ask."</blockquote>
+                    <p class="text-lg mb-8 max-w-3xl">Raised in a family where Sundays revolved around the table, Aaryan built Too Mikkii Tapas to honor both precision and emotion. His approach balances classical techniques with playful modern plating.</p>
+                    <div class="flex items-center gap-6">
+                        <div class="w-14 h-[2px] bg-accent"></div>
+                        <p class="text-4xl text-primary" style="font-family: 'Philosopher', sans-serif;">Aaryan Mehta</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-white">
+            <div class="max-w-[1590px] mx-auto px-4">
+                <div class="text-center mb-14 reveal opacity-0 translate-y-8 transition-all duration-700">
+                    <span class="text-accent uppercase tracking-[3px] text-sm font-semibold font-body">The Experience</span>
+                    <h2 class="text-4xl md:text-[70px] text-primary mt-3">Designed for all the senses.</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <article class="reveal opacity-0 translate-y-8 transition-all duration-700 bg-pale border border-light_gray/60 rounded-[28px] p-8 shadow-lg hover:-translate-y-2 hover:shadow-2xl duration-500">
+                        <div class="w-16 h-16 rounded-2xl bg-white border border-light_gray flex items-center justify-center mb-6 text-accent text-2xl"><i class="fas fa-leaf"></i></div>
+                        <h3 class="text-3xl text-primary mb-4">Freshness</h3>
+                        <p class="text-lg">Season-led sourcing, daily prep, and produce-first thinking keep every bite vibrant and honest.</p>
+                    </article>
+                    <article class="reveal opacity-0 translate-y-8 transition-all duration-700 bg-pale border border-light_gray/60 rounded-[28px] p-8 shadow-lg hover:-translate-y-2 hover:shadow-2xl duration-500">
+                        <div class="w-16 h-16 rounded-2xl bg-white border border-light_gray flex items-center justify-center mb-6 text-accent text-2xl"><i class="fas fa-utensils"></i></div>
+                        <h3 class="text-3xl text-primary mb-4">Craft</h3>
+                        <p class="text-lg">Technique-driven cooking with thoughtful plating, balanced flavor architecture, and house-made details.</p>
+                    </article>
+                    <article class="reveal opacity-0 translate-y-8 transition-all duration-700 bg-pale border border-light_gray/60 rounded-[28px] p-8 shadow-lg hover:-translate-y-2 hover:shadow-2xl duration-500">
+                        <div class="w-16 h-16 rounded-2xl bg-white border border-light_gray flex items-center justify-center mb-6 text-accent text-2xl"><i class="fas fa-couch"></i></div>
+                        <h3 class="text-3xl text-primary mb-4">Ambience</h3>
+                        <p class="text-lg">Soft lighting, textural interiors, and a calm rhythm that invites lingering conversations.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-secondary text-white overflow-hidden">
+            <div class="max-w-[1590px] mx-auto px-4">
+                <div class="text-center mb-16 reveal opacity-0 translate-y-8 transition-all duration-700">
+                    <span class="text-accent uppercase tracking-[3px] text-sm font-semibold font-body">Our Journey</span>
+                    <h2 class="text-4xl md:text-[70px] mt-3">Milestones that shaped our table.</h2>
+                </div>
+                <div class="relative">
+                    <div class="hidden md:block absolute left-1/2 -translate-x-1/2 top-0 h-full w-px bg-white/20"></div>
+                    <div class="space-y-10">
+                        <article class="reveal opacity-0 translate-y-8 transition-all duration-700 md:grid md:grid-cols-2 md:gap-10 items-center">
+                            <div class="md:text-right md:pr-12 pb-6 md:pb-0">
+                                <p class="text-accent text-sm uppercase tracking-[3px] mb-2">2018</p>
+                                <h3 class="text-3xl mb-3">The first terrace tables</h3>
+                                <p class="text-white/80">We opened as a 40-seat cafe focused on coffee rituals and small shared plates.</p>
+                            </div>
+                            <div class="md:pl-12 relative">
+                                <div class="hidden md:block absolute -left-[1.13rem] top-4 w-9 h-9 rounded-full border-4 border-secondary bg-accent"></div>
+                                <div class="bg-white/10 border border-white/15 rounded-[24px] p-6 backdrop-blur-sm">
+                                    <p class="text-white/85">Guests discovered us for brunch, but stayed for sunset service and house signatures.</p>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="reveal opacity-0 translate-y-8 transition-all duration-700 md:grid md:grid-cols-2 md:gap-10 items-center">
+                            <div class="md:order-2 md:text-left md:pl-12 pb-6 md:pb-0">
+                                <p class="text-accent text-sm uppercase tracking-[3px] mb-2">2020</p>
+                                <h3 class="text-3xl mb-3">Menu transformation</h3>
+                                <p class="text-white/80">A chef-led menu debuted, pairing modern tapas ideas with seasonal Indian produce.</p>
+                            </div>
+                            <div class="md:order-1 md:pr-12 relative">
+                                <div class="hidden md:block absolute -right-[1.13rem] top-4 w-9 h-9 rounded-full border-4 border-secondary bg-accent"></div>
+                                <div class="bg-white/10 border border-white/15 rounded-[24px] p-6 backdrop-blur-sm">
+                                    <p class="text-white/85">Our kitchen shifted from cafe staples to a full storytelling menu experience.</p>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="reveal opacity-0 translate-y-8 transition-all duration-700 md:grid md:grid-cols-2 md:gap-10 items-center">
+                            <div class="md:text-right md:pr-12 pb-6 md:pb-0">
+                                <p class="text-accent text-sm uppercase tracking-[3px] mb-2">2023</p>
+                                <h3 class="text-3xl mb-3">Recognized destination</h3>
+                                <p class="text-white/80">Too Mikkii Tapas became known as one of Delhi's most loved tree-lined dining spots.</p>
+                            </div>
+                            <div class="md:pl-12 relative">
+                                <div class="hidden md:block absolute -left-[1.13rem] top-4 w-9 h-9 rounded-full border-4 border-secondary bg-accent"></div>
+                                <div class="bg-white/10 border border-white/15 rounded-[24px] p-6 backdrop-blur-sm">
+                                    <p class="text-white/85">Today, we continue refining the experience with every season, service, and signature plate.</p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-pale overflow-hidden">
+            <div class="max-w-[1590px] mx-auto px-4 mb-10">
+                <div class="flex items-end justify-between gap-8 reveal opacity-0 translate-y-8 transition-all duration-700">
+                    <div>
+                        <span class="text-accent uppercase tracking-[3px] text-sm font-semibold font-body">Gallery Strip</span>
+                        <h2 class="text-4xl md:text-[62px] text-primary mt-3">The mood, in frames.</h2>
+                    </div>
+                    <p class="hidden md:block max-w-md text-lg">Scroll through glimpses of evenings, textures, and plated moments from Too Mikkii Tapas.</p>
+                </div>
+            </div>
+            <div class="w-screen relative left-1/2 -translate-x-1/2 px-4 md:px-8 lg:px-10">
+                <div class="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory hide-scrollbar">
+                    <figure class="min-w-[320px] md:min-w-[460px] h-[520px] rounded-[30px] overflow-hidden shadow-xl border border-white reveal opacity-0 translate-y-8 transition-all duration-700 snap-start">
+                        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1200&q=80" alt="Dining space" class="w-full h-full object-cover hover:scale-105 duration-700">
+                    </figure>
+                    <figure class="min-w-[320px] md:min-w-[420px] h-[520px] rounded-[30px] overflow-hidden shadow-xl border border-white reveal opacity-0 translate-y-8 transition-all duration-700 snap-start">
+                        <img src="https://images.unsplash.com/photo-1481833761820-0509d3217039?auto=format&fit=crop&w=1200&q=80" alt="Cocktail service" class="w-full h-full object-cover hover:scale-105 duration-700">
+                    </figure>
+                    <figure class="min-w-[320px] md:min-w-[520px] h-[520px] rounded-[30px] overflow-hidden shadow-xl border border-white reveal opacity-0 translate-y-8 transition-all duration-700 snap-start">
+                        <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=1200&q=80" alt="Chef plating" class="w-full h-full object-cover hover:scale-105 duration-700">
+                    </figure>
+                    <figure class="min-w-[320px] md:min-w-[420px] h-[520px] rounded-[30px] overflow-hidden shadow-xl border border-white reveal opacity-0 translate-y-8 transition-all duration-700 snap-start">
+                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80" alt="Signature dish" class="w-full h-full object-cover hover:scale-105 duration-700">
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-white">
+            <div class="max-w-[1200px] mx-auto px-4 reveal opacity-0 translate-y-8 transition-all duration-700">
+                <div class="rounded-[36px] bg-gradient-to-br from-secondary to-primary p-12 md:p-16 text-center shadow-2xl relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-48 h-48 bg-accent/15 blur-3xl"></div>
+                    <div class="absolute bottom-0 right-0 w-56 h-56 bg-white/10 blur-3xl"></div>
+                    <span class="text-accent uppercase tracking-[3px] text-sm font-semibold font-body relative z-10">Reserve Your Evening</span>
+                    <h2 class="text-white text-4xl md:text-[62px] mt-4 mb-6 leading-[1.05] relative z-10">Book Your Experience</h2>
+                    <p class="text-white/80 text-lg md:text-xl max-w-2xl mx-auto mb-10 relative z-10">Step into a curated dining mood where service is seamless, food is expressive, and every detail feels deliberate.</p>
+                    <a href="#" class="inline-flex items-center justify-center bg-accent text-white px-10 py-5 rounded-2xl font-bold text-lg hover:shadow-[0_0_30px_rgba(207,50,71,0.45)] hover:scale-105 transition-all duration-500 relative z-10">Book Your Experience <i class="fas fa-angle-right ml-3"></i></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-secondary pt-24 pb-8">
+        <div class="max-w-[1590px] mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+                <div class="lg:col-span-2">
+                    <h3 class="text-white text-4xl mb-4">Too Mikkii Tapas</h3>
+                    <p class="text-accent text-xs uppercase tracking-[2px] mb-8">Tree-Lined Outdoor Cafe</p>
+                    <p class="text-t_gray text-sm leading-relaxed max-w-sm">Every dish is crafted with passion and the freshest ingredients. Join us for a warm, flavorful experience inspired by tradition and made with love.</p>
+                </div>
+                <div>
+                    <h5 class="text-white text-xl mb-8">Useful Links</h5>
+                    <ul class="space-y-4 text-t_gray text-sm">
+                        <li><a href="#" class="hover:text-accent transition-colors"><i class="fas fa-angle-right text-accent mr-2"></i> Menu</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors"><i class="fas fa-angle-right text-accent mr-2"></i> Reservations</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors"><i class="fas fa-angle-right text-accent mr-2"></i> About Us</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors"><i class="fas fa-angle-right text-accent mr-2"></i> Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white text-xl mb-8">Contact Info</h5>
+                    <ul class="space-y-4 text-t_gray text-sm">
+                        <li class="flex items-start gap-3"><i class="fas fa-phone text-white mt-1"></i> 096545 25880</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-globe text-white mt-1"></i> Reservations: swiggy.com</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-map-marker-alt text-white mt-1"></i> Alexander M Kadakin Marg, Akhaura Block, Bapu Dham, Chanakyapuri, New Delhi</li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white text-xl mb-8">Follow Us</h5>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-accent hover:border-accent transition-all"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-accent hover:border-accent transition-all"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-accent hover:border-accent transition-all"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                    <div class="mt-8">
+                        <h5 class="text-white text-sm uppercase tracking-wider mb-4">Open Hours</h5>
+                        <p class="text-t_gray text-xs">Daily: <span class="text-white">Open - Closes 11:30 pm</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-center items-center text-t_gray text-xs gap-4">
+                <p>© 2026 Too Mikkii Tapas. All Rights Reserved.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="text-accent underline">Privacy Policy</a>
+                    <a href="#" class="text-accent underline">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Side Drawer Menu (Mobile & Sidebar) -->
+    <div id="drawer" class="fixed inset-0 z-[100] translate-x-full drawer-transition">
+        <div id="drawerOverlay" class="absolute inset-0 bg-black/60"></div>
+        <div class="absolute top-0 right-0 w-[350px] h-full bg-white shadow-2xl p-10 overflow-y-auto">
+            <div class="flex justify-between items-center mb-10">
+                <h3 class="text-primary text-3xl">Too Mikkii Tapas</h3>
+                <button id="closeDrawer" class="border border-light_gray p-2 px-3 rounded-lg hover:border-accent group transition-all">
+                    <img src="https://designingmedia.com/tasteline/wp-content/uploads/2025/11/cross-icon-drawer.png" class="w-4" alt="close">
+                </button>
+            </div>
+            <p class="text-sm mb-10">Every dish is crafted with passion and the freshest ingredients. Join us for a warm, flavorful experience inspired by tradition and made with love.</p>
+
+            <div class="mb-10">
+                <h3 class="text-primary text-2xl mb-6">Navigation</h3>
+                <ul class="space-y-3 text-t_gray">
+                    <li><a href="index.html" class="hover:text-accent transition-colors"><i class="fas fa-angle-right text-accent mr-2"></i>Home</a></li>
+                    <li><a href="about.html" class="hover:text-accent transition-colors"><i class="fas fa-angle-right text-accent mr-2"></i>About Us</a></li>
+                    <li><a href="menu.html" class="hover:text-accent transition-colors"><i class="fas fa-angle-right text-accent mr-2"></i>Menu</a></li>
+                    <li><a href="reservation.html" class="hover:text-accent transition-colors"><i class="fas fa-angle-right text-accent mr-2"></i>Reservation</a></li>
+                    <li><a href="index.html#gallery" class="hover:text-accent transition-colors"><i class="fas fa-angle-right text-accent mr-2"></i>Gallery</a></li>
+                    <li><a href="contact.html" class="hover:text-accent transition-colors"><i class="fas fa-angle-right text-accent mr-2"></i>Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="mb-10">
+                <h3 class="text-primary text-2xl mb-6">Contact Info</h3>
+                <ul class="space-y-4 text-t_gray">
+                    <li class="flex items-center gap-3"><i class="fas fa-phone text-accent"></i> 096545 25880</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-globe text-accent"></i> Reservations: swiggy.com</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-map-marker-alt text-accent"></i> Chanakyapuri, New Delhi</li>
+                </ul>
+            </div>
+
+            <div class="mb-10">
+                <h3 class="text-primary text-2xl mb-6">Open Hours</h3>
+                <ul class="space-y-2 text-sm">
+                    <li>Daily: <span class="text-accent">Open - Closes 11:30 pm</span></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-primary text-2xl mb-6">Gallery</h3>
+                <div class="grid grid-cols-3 gap-2">
+                    <img src="./public/img1.webp" class="rounded-lg w-full h-20 object-cover" alt="G1">
+                    <img src="./public/img2.webp" class="rounded-lg w-full h-20 object-cover" alt="G2">
+                    <img src="./public/img3.webp" class="rounded-lg w-full h-20 object-cover" alt="G3">
+                    <img src="./public/img4.webp" class="rounded-lg w-full h-20 object-cover" alt="G4">
+                    <img src="./public/img5.webp" class="rounded-lg w-full h-20 object-cover" alt="G5">
+                    <img src="./public/img6.webp" class="rounded-lg w-full h-20 object-cover" alt="G6">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Quick Contact -->
+    <a href="https://wa.me/919654525880" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp"
+    class="fixed bottom-6 right-6 z-[80] w-12 h-12 rounded-xl bg-[#25D366] text-white flex items-center justify-center shadow-xl hover:scale-105 transition-all">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+
+    <script>
+        const drawer = document.getElementById('drawer');
+        const openBtn = document.getElementById('openDrawer');
+        const closeBtn = document.getElementById('closeDrawer');
+        const overlay = document.getElementById('drawerOverlay');
+
+        openBtn.addEventListener('click', () => drawer.classList.remove('translate-x-full'));
+        closeBtn.addEventListener('click', () => drawer.classList.add('translate-x-full'));
+        overlay.addEventListener('click', () => drawer.classList.add('translate-x-full'));
+
+        document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+            drawer.classList.remove('translate-x-full');
+        });
+
+        const revealItems = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.remove('opacity-0', 'translate-y-8');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.16 });
+        revealItems.forEach((item) => revealObserver.observe(item));
+
+        const parallaxImages = document.querySelectorAll('[data-parallax]');
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            parallaxImages.forEach((img) => {
+                img.style.transform = 'translateY(' + (scrollY * 0.08) + 'px)';
+            });
+        });
+    </script>
+</body>
+</html>
